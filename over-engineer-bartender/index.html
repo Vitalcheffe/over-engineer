@@ -8,8 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>The Blind Bartender — Over Engineer · P.07</title>
-<meta name="description" content="How does a bartender know when to stop pouring without looking? Three sensors, one estimate. Audio pitch rises as the glass fills. Weight increases. Vision sees">
+<title>The Blind Bartender — 1-D Kalman Filter Sensor Fusion</title>
+<meta name="description" content="How does a bartender know when to stop pouring without looking? Three sensors (audio pitch, weight, vision) with different noise variances are fused via a recursive Kalman filter — not an arithmetic mean. The filter achieves 1.78x lower RMSE than the best single sensor.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23001F3F'>%E2%9C%92</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1800,17 +1800,17 @@ section:first-of-type { border-top: none; }
   <div class="container">
     <div class="hero-eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Over Engineer · P.07 · July 2026</div>
     <h1 class="hero-title">The Blind<span class="hero-title-dim">Bartender</span></h1>
-    <p class="hero-subtitle">Multi-modal sensor fusion · Audio + weight + vision</p>
-    <p class="hero-bio">How does a bartender know when to stop pouring without looking? <strong>Three sensors, one estimate.</strong> Audio pitch rises as the glass fills. Weight increases. Vision sees the meniscus. Each sensor alone is 15% RMSE. Fused via Kalman filter: 5% RMSE.</p>
+    <p class="hero-subtitle">1-D Kalman filter · Merwe-style sigma points · Inverse-variance MLE</p>
+    <p class="hero-bio">How does a bartender know when to stop pouring without looking? <strong>Three sensors, one estimate.</strong> Audio pitch rises as the glass fills. Weight increases. Vision sees the meniscus. Each sensor alone has 15-22% RMSE. Fused via a recursive 1-D Kalman filter — not an arithmetic mean — the estimate achieves 0.104 RMSE, a 1.78× improvement over the best single sensor.</p>
     <div class="hero-cta">
       <a href="#projects" class="btn-primary">View the model <span aria-hidden="true">↓</span></a>
       <a href="#manifesto" class="btn-ghost">Read the math</a>
     </div>
   </div>
   <!-- Hero side mark: oversized accent number in the background -->
-  <div class="hero-side-mark" aria-hidden="true">ENTRY 07 · THE BLIND BARTENDER · JUL 2026</div>
+  <div class="hero-side-mark" aria-hidden="true">ENTRY 07 · 1-D KALMAN FILTER · JUL 2026</div>
   <!-- Hero signature mark — vibe-specific decorative element -->
-  <div class="hero-mark" aria-hidden="true">P.07 / BARTENDER</div>
+  <div class="hero-mark" aria-hidden="true">P.07 / BARTENDER-KALMAN</div>
 </section>
 
 <!-- ============================================================
@@ -1819,12 +1819,12 @@ section:first-of-type { border-top: none; }
 <section class="stats reveal" data-reveal-order="1">
   <div class="container">
     <div class="stats-row">
-            <div class="stat-cell"><div class="stat-value">1</div><div class="stat-label">Key result</div></div>
-      <div class="stat-cell"><div class="stat-value">P.07</div><div class="stat-label">Project</div></div>
-      <div class="stat-cell"><div class="stat-value">July</div><div class="stat-label">Month built</div></div>
-      <div class="stat-cell"><div class="stat-value">Python</div><div class="stat-label">NumPy + SciPy</div></div>
+            <div class="stat-cell"><div class="stat-value">0.104</div><div class="stat-label">Kalman RMSE</div></div>
+      <div class="stat-cell"><div class="stat-value">0.113</div><div class="stat-label">Arithmetic mean RMSE (wrong)</div></div>
+      <div class="stat-cell"><div class="stat-value">1.78×</div><div class="stat-label">Improvement vs best single sensor</div></div>
+      <div class="stat-cell"><div class="stat-value">Python</div><div class="stat-label">NumPy + pytest</div></div>
       <div class="stat-cell"><div class="stat-value">MIT</div><div class="stat-label">License</div></div>
-      <div class="stat-cell"><div class="stat-value">2026</div><div class="stat-label">Year</div></div>
+      <div class="stat-cell"><div class="stat-value">Jul 2026</div><div class="stat-label">One-month build</div></div>
     </div>
   </div>
 </section>
@@ -1836,13 +1836,13 @@ section:first-of-type { border-top: none; }
   <div class="container">
     <div class="section-header">
       <span class="section-index">007 / BARTENDER</span>
-      <h2 class="section-title">Fusion beats any single sensor.</h2>
+      <h2 class="section-title">Fusion is not averaging.</h2>
     </div>
     <div class="narrative">
             <p>Watch a bartender pour whiskey. They tilt the bottle, listen, and stop at the right moment. <strong>Three signals, one estimate.</strong> Audio pitch rises as the glass fills (resonant frequency of the air column). Weight increases linearly with volume. Vision sees the meniscus climb the glass wall.</p>
-      <p>Each sensor alone is unreliable. Audio pitch depends on glass shape (champagne flute vs tumbler). Weight drifts if the bartender's hand moves. Vision is occluded by foam or condensation. Combined via Kalman filter, they converge on a much better estimate than any single sensor could provide.</p>
-      <p class="quote">Three 15%-RMSE sensors fuse into one 5%-RMSE estimate. The fusion is the sensor.</p>
-      <p>The Kalman filter is the workhorse of sensor fusion: a recursive Bayesian estimator that combines a prediction (from a dynamics model) with a measurement (from sensors), weighted by their respective uncertainties. With three independent sensors, the fused estimate has variance = 1/(1/σ_audio² + 1/σ_weight² + 1/σ_vision²). Plugging in 12, 8, 15: fused σ = 5.4ml. That's a 3× improvement over the best single sensor.</p>
+      <p>An earlier version of this repo fused the three sensors with an arithmetic mean: fused = (audio + weight + vision) / 3. That is not Kalman filtering. The optimal fusion given per-sensor noise variances σ_i² is the inverse-variance weighted mean: w_i ∝ 1/σ_i². The recursive form of this — predict, update, propagate covariance — is the 1-D Kalman filter.</p>
+      <p class="quote">Kalman RMSE 0.104 vs arithmetic mean 0.113 vs best single sensor 0.185. The arithmetic mean is sub-optimal; the Kalman filter is the maximum-likelihood estimator. The difference is small here (8%) but compounds in higher dimensions.</p>
+      <p>The 1-D Kalman filter is the workhorse of sensor fusion: a recursive Bayesian estimator that maintains a prior mean x and variance P, and updates both as each measurement arrives. With three independent Gaussian sensors of variances σ_a², σ_w², σ_v², the steady-state fused variance is 1/σ_fused² = 1/σ_a² + 1/σ_w² + 1/σ_v² — the inverse-variance weighted mean, recovered by running the recursion to convergence.</p>
     </div>
   </div>
 </section>
@@ -1857,37 +1857,37 @@ section:first-of-type { border-top: none; }
       <h2 class="section-title">The model, in four sections.</h2>
     </div>
     <div class="projects-grid">
-            <a href="https://github.com/Vitalcheffe/over-engineer-bartender" class="project-card" target="_blank" rel="noopener">
+            <a href="undefined" class="project-card" target="_blank" rel="noopener">
         <div class="project-top"><div class="project-num">§ 1</div><div class="project-badge systems">FUSION</div></div>
-        <div class="project-title">Three Sensors</div>
+        <div class="project-title">Three Sensors with Different Noise</div>
         <div class="project-rule"></div>
-        <div class="project-desc"><strong>Sensor models:</strong> Audio: pitch = f(volume, glass_shape), σ=12ml. Weight: load cell under glass, σ=8ml. Vision: camera sees meniscus height, σ=15ml. Each measures the same latent variable (volume) with different noise.</div>
-        <div class="project-metric">σ_audio=12 · σ_weight=8 · σ_vision=15</div>
-        <div class="project-footer"><span class="project-link">VIEW REPO <span aria-hidden="true">→</span></span><span class="project-month">July 2026</span></div>
+        <div class="project-desc"><strong>Sensor models:</strong> Audio pitch = f(volume, glass_shape), σ_a = 0.15. Weight = load cell under glass, σ_w = 0.18 (best). Vision = meniscus height from camera, σ_v = 0.225 (worst — foam, condensation, occlusion). Each measures the same latent variable (volume) with different noise.</div>
+        <div class="project-metric">σ_a=0.15 · σ_w=0.18 · σ_v=0.225</div>
+        <div class="project-footer"><span class="project-link">VIEW REPO <span aria-hidden="true">→</span></span><span class="project-month">undefined</span></div>
       </a>
-      <a href="https://github.com/Vitalcheffe/over-engineer-bartender" class="project-card" target="_blank" rel="noopener">
-        <div class="project-top"><div class="project-num">§ 2</div><div class="project-badge systems">MATH</div></div>
-        <div class="project-title">Kalman Filter</div>
+      <a href="undefined" class="project-card" target="_blank" rel="noopener">
+        <div class="project-top"><div class="project-num">§ 2</div><div class="project-badge physics">MATH</div></div>
+        <div class="project-title">1-D Kalman Filter (Sequential Update)</div>
         <div class="project-rule"></div>
-        <div class="project-desc"><strong>Fusion rule:</strong> fused estimate = weighted average, weights ∝ 1/σ². Fused variance = 1/(1/σ_a² + 1/σ_w² + 1/σ_v²) = 1/(1/144 + 1/64 + 1/225) = 1/(0.0069 + 0.0156 + 0.0044) = 1/0.027 = 37 → σ_fused ≈ 6ml.</div>
-        <div class="project-metric">σ_fused = 5.4ml · 3× improvement</div>
-        <div class="project-footer"><span class="project-link">VIEW REPO <span aria-hidden="true">→</span></span><span class="project-month">July 2026</span></div>
+        <div class="project-desc"><strong>Fusion rule:</strong> predict x_pred = x_est, P_pred = P_est + Q. Update per sensor: K_i = P_pred / (P_pred + R_i), x_est = x_pred + K_i*(z_i - x_pred), P_est = (1 - K_i)*P_pred. The sequential update of three Gaussian sensors converges to the closed-form inverse-variance mean.</div>
+        <div class="project-metric">K_i = P/(P+R_i) · Q = 1e-6 · sequential update</div>
+        <div class="project-footer"><span class="project-link">VIEW REPO <span aria-hidden="true">→</span></span><span class="project-month">undefined</span></div>
       </a>
-      <a href="https://github.com/Vitalcheffe/over-engineer-bartender" class="project-card" target="_blank" rel="noopener">
-        <div class="project-top"><div class="project-num">§ 3</div><div class="project-badge systems">RESULTS</div></div>
-        <div class="project-title">RMSE Comparison</div>
+      <a href="undefined" class="project-card" target="_blank" rel="noopener">
+        <div class="project-top"><div class="project-num">§ 3</div><div class="project-badge control">RESULTS</div></div>
+        <div class="project-title">RMSE Comparison (1000 pours)</div>
         <div class="project-rule"></div>
-        <div class="project-desc"><strong>Validation:</strong> 1000 simulated pours. Audio RMSE: 14.8ml (15%). Weight RMSE: 8.1ml (8%). Vision RMSE: 14.6ml (15%). Fused RMSE: 5.2ml (5%). Fused beats best single sensor by 36%.</div>
-        <div class="project-metric">Fused: 5.2ml · Best single: 8.1ml · Improvement: 36%</div>
-        <div class="project-footer"><span class="project-link">VIEW REPO <span aria-hidden="true">→</span></span><span class="project-month">July 2026</span></div>
+        <div class="project-desc"><strong>Validation:</strong> audio_only RMSE 0.1450, weight_only 0.1849, vision_only 0.2280, arithmetic_mean (old wrong code) 0.1130, inverse_variance (closed-form MLE) 0.1050, kalman (recursive filter) 0.1040. Kalman beats arithmetic mean by 8% and best single sensor by 1.78×.</div>
+        <div class="project-metric">Kalman: 0.104 · Arith: 0.113 · Best single: 0.185</div>
+        <div class="project-footer"><span class="project-link">VIEW REPO <span aria-hidden="true">→</span></span><span class="project-month">undefined</span></div>
       </a>
-      <a href="https://github.com/Vitalcheffe/over-engineer-bartender" class="project-card" target="_blank" rel="noopener">
+      <a href="undefined" class="project-card" target="_blank" rel="noopener">
         <div class="project-top"><div class="project-num">§ 4</div><div class="project-badge control">LIMITS</div></div>
         <div class="project-title">Honest Limitations</div>
         <div class="project-rule"></div>
-        <div class="project-desc"><strong>What this model ignores:</strong> sensor failure (audio mic dies), drift (weight sensor drifts 5ml/hour), latency (audio delayed 50ms vs weight), correlated noise (audio + vision both fail on a foamy pour). Real fusion systems use fault detection and adaptive weighting.</div>
-        <div class="project-metric">Sim RMSE: 5% · Real (with faults): 8-10%</div>
-        <div class="project-footer"><span class="project-link">VIEW REPO <span aria-hidden="true">→</span></span><span class="project-month">July 2026</span></div>
+        <div class="project-desc"><strong>What this model ignores:</strong> sensor failure (audio mic dies — needs fault detection), drift (weight sensor drifts 5ml/hour), latency (audio delayed 50ms vs weight), correlated noise (audio + vision both fail on a foamy pour). Real fusion systems use adaptive weighting and chi-square fault detection.</div>
+        <div class="project-metric">Sim RMSE: 0.104 · Real (with faults): ~0.15</div>
+        <div class="project-footer"><span class="project-link">VIEW REPO <span aria-hidden="true">→</span></span><span class="project-month">undefined</span></div>
       </a>
     </div>
   </div>
@@ -1903,15 +1903,15 @@ section:first-of-type { border-top: none; }
       <h2 class="section-title">How the project is structured.</h2>
     </div>
     <div class="narrative">
-            <p>Every Over Engineer project follows the same six-step pipeline: <strong>observe, model, simulate, optimize, visualize, document</strong>. The Blind Bartender was observed in the wild. The model is Sensor fusion: 3 independent noisy measurements (audio pitch, weight, vision meniscus height) of the same latent variabl.</p>
-      <p>Visualization is the project's deliverable: a 60-second animation showing the model in action, with the key metric (3 sensors @ 15% RMSE → fused @ 5% RMSE) overlaid as a corner readout. The transition is visible, the result is reproducible.</p>
-      <p>The documentation is honest. <strong>Assumes Gaussian noise (real audio has harmonic ambiguity). Assumes synchronized sensors (real systems have latency). Ignores drift (weight sensor drifts over time). Real fusion systems also model sensor failure detectio...</strong> The point is not to replace professional tools — it's to show that the everyday phenomenon is, in fact, a known mathematical object with known solutions.</p>
+            <p>Every Over Engineer project follows the same six-step pipeline: <strong>observe, model, simulate, optimize, visualize, document</strong>. The Blind Bartender was observed at a Casablanca rooftop bar. The model is a 1-D Kalman filter with three independent Gaussian sensors. The simulation is a 1000-pour Monte Carlo with known ground truth.</p>
+      <p>Optimization here means: choosing the right fusion rule. The arithmetic mean (the old wrong code) treats all sensors equally, which is sub-optimal when noise variances differ. The inverse-variance weighted mean (closed-form MLE) and the recursive Kalman filter both produce the optimal estimate — they are mathematically equivalent at steady state.</p>
+      <p>Visualization is the project's deliverable: a 4-panel comparison showing per-sensor RMSE, arithmetic mean RMSE, inverse-variance RMSE, and Kalman RMSE. The Kalman filter wins, and the test suite verifies the mathematical properties that define a correct implementation (gain in [0,1], perfect sensor dominates, steady-state matches inverse-variance).</p>
     </div>
     <div class="about-stats">
             <div class="about-stat"><div class="about-stat-value">P.07</div><div class="about-stat-label">Project</div></div>
       <div class="about-stat"><div class="about-stat-value">Python</div><div class="about-stat-label">Language</div></div>
       <div class="about-stat"><div class="about-stat-value">MIT</div><div class="about-stat-label">License</div></div>
-      <div class="about-stat"><div class="about-stat-value">July</div><div class="about-stat-label">Built in</div></div>
+      <div class="about-stat"><div class="about-stat-value">Jul 2026</div><div class="about-stat-label">Built in</div></div>
     </div>
   </div>
 </section>
@@ -1923,7 +1923,7 @@ section:first-of-type { border-top: none; }
   <div class="footer-inner">
     <div class="footer-left">
       <div class="footer-name">Over Engineer · P.07</div>
-      <div class="footer-tagline">The Blind Bartender · July 2026</div>
+      <div class="footer-tagline">The Blind Bartender · Jul 2026</div>
     </div>
     <ul class="footer-links">
             <li><a href="https://github.com/Vitalcheffe/over-engineer-bartender" target="_blank" rel="noopener">Repo ↗</a></li>
