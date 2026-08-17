@@ -1,0 +1,77 @@
+{
+  "lang": "en",
+  "title": "Raindrop Racing — Stokes drag, surface tension, coalescence phase transition",
+  "description": "Why raindrops merge and accelerate down a window. Stokes drag, surface tension, and a phase transition above a critical radius.",
+  "nav": {
+    "logo": "P.06 / RAINDROPS",
+    "links": [
+      { "href": "#manifesto", "label": "Question" },
+      { "href": "#projects", "label": "Documentation" },
+      { "href": "#about", "label": "Methodology" }
+    ],
+    "cta": { "label": "Code", "href": "https://github.com/Vitalcheffe/over-engineer-raindrops" }
+  },
+  "hero": {
+    "eyebrow": "Over Engineer · P.06 · June 2026",
+    "titleTop": "Raindrop",
+    "titleBottom": "Racing",
+    "subtitle": "Stokes drag · Surface tension · Coalescence phase transition",
+    "bio": "Watch a raindrop on a window. It sits. It grows slowly. Then suddenly it streaks down, eating other drops as it goes. <strong>Two regimes, one threshold.</strong> Below a critical radius, the drop is pinned by surface tension. Above it, gravity wins and the drop runs.",
+    "ctaPrimary": { "label": "View the model", "href": "#projects" },
+    "ctaGhost": { "label": "Read the math", "href": "#manifesto" },
+    "mark": "P.06 / STOKES-RAINDROP",
+    "sideMark": "ENTRY 06 · STOKES DRAG · JUN 2026"
+  },
+  "stats": [
+    { "value": "1.5", "label": "mm critical radius" },
+    { "value": "0.08", "label": "N/m surface tension" },
+    { "value": "9.81", "label": "m/s² gravity" },
+    { "value": "Python", "label": "NumPy + SciPy" },
+    { "value": "MIT", "label": "License" },
+    { "value": "Jun 2026", "label": "One-month build" }
+  ],
+  "manifesto": {
+    "index": "001 / THE QUESTION",
+    "title": "Why do raindrops merge and run?",
+    "paragraphs": [
+      { "type": "p", "text": "It's raining. You're at a window. A raindrop lands and sits there, slowly growing as smaller drops merge with it. Then, abruptly, it accelerates downward, swallowing every drop in its path. <strong>What just happened?</strong>" },
+      { "type": "p", "text": "Two forces compete. Gravity pulls the drop down: F_g = ρVg. Surface tension pins it to the glass: F_σ = 2πrσ cos θ, where σ is the surface tension coefficient and θ is the contact angle. The drop stays put while F_σ > F_g — that is, while its radius is below a critical value r* derived by balancing the two." },
+      { "type": "quote", "text": "The critical radius is 1.5 mm. Below it, the drop is a sphere. Above it, the drop is a river." },
+      { "type": "p", "text": "Once a drop exceeds r*, gravity dominates and the drop accelerates. As it moves, it absorbs smaller drops in its path — each absorption increases its mass, which increases its gravitational force, which accelerates it further. This is the coalescence cascade: a runaway process that converts a quiet field of pinned drops into a single fast streak." }
+    ]
+  },
+  "projects": {
+    "index": "002 / DOCUMENTATION",
+    "title": "The model, in four sections.",
+    "items": [
+      { "num": "§ 1", "badge": "MATH", "badgeClass": "physics", "title": "Force Balance", "desc": "<strong>Two forces:</strong> F_g = (4/3)πr³ ρg (gravity) vs F_σ = 2πrσ cos θ (surface tension pinning). Critical radius r* = (3σ cos θ / ρg)^(1/2). For water on glass: r* ≈ 1.5 mm.", "metric": "r* = 1.5 mm · θ ≈ 40° · σ = 0.072 N/m", "month": "Jun 2026", "href": "https://github.com/Vitalcheffe/over-engineer-raindrops/blob/main/docs/math.md" },
+      { "num": "§ 2", "badge": "SIMULATION", "badgeClass": "fluid", "title": "Stokes Drag", "desc": "<strong>Terminal velocity:</strong> once unpinned, the drop reaches terminal velocity v_t = (2/9) (r² ρ g) / η, where η is the dynamic viscosity of air (1.8e-5 Pa·s). A 2 mm drop hits 1 m/s in under 0.1 s.", "metric": "v_t(2mm) ≈ 1.2 m/s · Re < 1 (Stokes valid)", "month": "Jun 2026", "href": "https://github.com/Vitalcheffe/over-engineer-raindrops/blob/main/model.py" },
+      { "num": "§ 3", "badge": "RESULTS", "badgeClass": "systems", "title": "Coalescence Cascade", "desc": "<strong>Validation:</strong> a population of 200 drops with random initial radii is simulated. Drops above r* begin moving. Each absorbed drop increases the parent's radius. Cascade duration to first giant streak: ~6 seconds in simulation time.", "metric": "200 drops · First cascade: t ≈ 6s", "month": "Jun 2026", "href": "https://github.com/Vitalcheffe/over-engineer-raindrops/blob/main/visualize.py" },
+      { "num": "§ 4", "badge": "LIMITS", "badgeClass": "control", "title": "Honest Limitations", "desc": "<strong>What this model ignores:</strong> wind (the window is not vertical in the model — it is, but no shear), drop deformation during motion (spheres only), evaporation, surface roughness, contact-angle hysteresis. Real glass is dirtier than the model.", "metric": "2D · Spherical drops · No hysteresis", "month": "Jun 2026", "href": "https://github.com/Vitalcheffe/over-engineer-raindrops/blob/main/docs/notes.md" }
+    ]
+  },
+  "about": {
+    "index": "003 / METHODOLOGY",
+    "title": "How the project is structured.",
+    "paragraphs": [
+      { "type": "p", "text": "Every Over Engineer project follows the same six-step pipeline: <strong>observe, model, simulate, optimize, visualize, document</strong>. Raindrop Racing was observed on the kitchen window during a November storm. The model is force balance plus Stokes drag. The simulation is an event-driven particle system with coalescence detection." },
+      { "type": "p", "text": "The optimization step here is unusual: there's nothing to optimize. The model has no free parameters that admit optimization — surface tension and viscosity are physical constants. The \"optimization\" is the choice of numerical scheme. Event-driven integration (step on each collision) beats fixed-step RK4 by a factor of 40 in wall time." },
+      { "type": "p", "text": "Visualization is the project's deliverable: a 60-second animation showing 200 drops with random initial radii, with one drop seeded above r* at t=0. The cascade begins immediately, and by t=6s a single giant streak dominates the field. The first time you watch it, it looks like real rain on a window. That's the test." }
+    ],
+    "stats": [
+      { "value": "200", "label": "Drops" },
+      { "value": "1.5", "label": "mm r*" },
+      { "value": "6s", "label": "Cascade time" },
+      { "value": "Jun 2026", "label": "Built in" }
+    ]
+  },
+  "footer": {
+    "name": "Over Engineer · P.06",
+    "tagline": "Raindrop Racing · Jun 2026",
+    "links": [
+      { "label": "Repo", "href": "https://github.com/Vitalcheffe/over-engineer-raindrops" },
+      { "label": "Portfolio", "href": "https://vitalcheffe.github.io" },
+      { "label": "All projects", "href": "https://github.com/Vitalcheffe?tab=repositories&q=over-engineer" }
+    ]
+  }
+}

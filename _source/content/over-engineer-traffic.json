@@ -1,0 +1,77 @@
+{
+  "lang": "en",
+  "title": "Phantom Traffic Jams — LWR continuum model of stop-and-go waves",
+  "description": "A continuum model of traffic flow showing how phantom jams self-organize from nothing. Lighthill-Whitham-Richards PDE, shockwave tracking, stability analysis.",
+  "nav": {
+    "logo": "P.02 / TRAFFIC",
+    "links": [
+      { "href": "#manifesto", "label": "Question" },
+      { "href": "#projects", "label": "Documentation" },
+      { "href": "#about", "label": "Methodology" }
+    ],
+    "cta": { "label": "Code", "href": "https://github.com/Vitalcheffe/over-engineer-traffic" }
+  },
+  "hero": {
+    "eyebrow": "Over Engineer · P.02 · February 2026",
+    "titleTop": "Phantom",
+    "titleBottom": "Traffic Jams",
+    "subtitle": "LWR continuum model · Shockwave propagation · Stability analysis",
+    "bio": "Where do traffic jams come from when there's no accident? <strong>The road is a fluid.</strong> Density obeys a conservation law. Speed responds to density. The result is a nonlinear PDE whose solutions include self-organizing shockwaves — jams that emerge from uniform flow and travel backward at 15 km/h.",
+    "ctaPrimary": { "label": "View the model", "href": "#projects" },
+    "ctaGhost": { "label": "Read the math", "href": "#manifesto" },
+    "mark": "P.02 / LWR-TRAFFIC",
+    "sideMark": "ENTRY 02 · LWR CONTINUUM · FEB 2026"
+  },
+  "stats": [
+    { "value": "75", "label": "veh/km critical density" },
+    { "value": "-15", "label": "km/h shockwave speed" },
+    { "value": "1.4", "label": "km wave wavelength" },
+    { "value": "Python", "label": "NumPy + SciPy" },
+    { "value": "MIT", "label": "License" },
+    { "value": "Feb 2026", "label": "One-month build" }
+  ],
+  "manifesto": {
+    "index": "001 / THE QUESTION",
+    "title": "Why does traffic stop for nothing?",
+    "paragraphs": [
+      { "type": "p", "text": "You're driving on a highway. Nothing has happened — no accident, no construction, no on-ramp. Yet traffic slows to a crawl, then accelerates back to normal a minute later. This is a <strong>phantom jam</strong>, and it happens because traffic, at sufficient density, behaves like a compressible fluid." },
+      { "type": "p", "text": "The Lighthill-Whitham-Richards (LWR) model treats traffic as a continuum. Density ρ(x,t) obeys a conservation law. The fundamental diagram gives flow as a function of density. The resulting PDE admits shockwave solutions — traveling discontinuities in density that move backward through the stream." },
+      { "type": "quote", "text": "The jam moves backward at 15 km/h. You move forward at 80. The relative speed is what makes it feel like the jam appeared from nowhere." },
+      { "type": "p", "text": "Below a critical density (≈ 75 vehicles per kilometer per lane), small perturbations damp out. Above it, they amplify into self-sustaining stop-and-go waves. The transition is mathematically sharp — a bifurcation in the stability of the uniform-flow solution." }
+    ]
+  },
+  "projects": {
+    "index": "002 / DOCUMENTATION",
+    "title": "The model, in four sections.",
+    "items": [
+      { "num": "§ 1", "badge": "MATH", "badgeClass": "physics", "title": "The LWR PDE", "desc": "<strong>Conservation law:</strong> ∂ρ/∂t + ∂(ρv(ρ))/∂x = 0. Velocity-density relationship v(ρ) = v_max (1 - ρ/ρ_max). Characteristics carry density information at the kinematic wave speed c = dv/dρ.", "metric": "PDE: hyperbolic · Characteristics: dx/dt = dq/dρ", "month": "Feb 2026", "href": "https://github.com/Vitalcheffe/over-engineer-traffic/blob/main/docs/math.md" },
+      { "num": "§ 2", "badge": "SIMULATION", "badgeClass": "fluid", "title": "Godunov Scheme", "desc": "<strong>Numerical method:</strong> Godunov finite-volume scheme. Each cell computes the Riemann problem at its boundary. Cell updates use the exact flux through edges. CFL condition sets Δt.", "metric": "CFL ≤ 0.5 · 500 cells · 60s sim in ~0.8s", "month": "Feb 2026", "href": "https://github.com/Vitalcheffe/over-engineer-traffic/blob/main/model.py" },
+      { "num": "§ 3", "badge": "RESULTS", "badgeClass": "systems", "title": "Shockwave Tracking", "desc": "<strong>Validation:</strong> a perturbation seeded at t=0 evolves into a backward-traveling shockwave. Speed matches the Rankine-Hugoniot condition: s = (q_R - q_L) / (ρ_R - ρ_L). Average error < 0.4 km/h vs analytical.", "metric": "Shock speed: -15 km/h · Error: 0.4 km/h", "month": "Feb 2026", "href": "https://github.com/Vitalcheffe/over-engineer-traffic/blob/main/visualize.py" },
+      { "num": "§ 4", "badge": "LIMITS", "badgeClass": "control", "title": "Honest Limitations", "desc": "<strong>What this model ignores:</strong> lane-changing, multi-class vehicles, ramps, driver reaction time (the intelligent driver model handles these). LWR is the floor, not the ceiling. It captures the macroscopic wave; it cannot predict individual vehicles.", "metric": "Assumes homogeneous drivers · Single lane", "month": "Feb 2026", "href": "https://github.com/Vitalcheffe/over-engineer-traffic/blob/main/docs/notes.md" }
+    ]
+  },
+  "about": {
+    "index": "003 / METHODOLOGY",
+    "title": "How the project is structured.",
+    "paragraphs": [
+      { "type": "p", "text": "Every Over Engineer project follows the same six-step pipeline: <strong>observe, model, simulate, optimize, visualize, document</strong>. Phantom Traffic Jams is no exception. The phenomenon was observed on the A1 between Casablanca and Rabat. The model is the LWR PDE. The simulation is a Godunov finite-volume scheme." },
+      { "type": "p", "text": "Visualization is the project's deliverable: a 60-second animation showing density evolve over a 5-kilometer stretch of road, with a perturbation seeded at t=0 that grows into a backward-traveling shockwave. The shockwave's measured speed is within 3% of the Rankine-Hugoniot prediction." },
+      { "type": "p", "text": "The documentation is honest. The model assumes a single lane, homogeneous drivers, and no ramps. Real traffic is messier. The point is not to replace Vissim or Aimsun — it's to show that the everyday phenomenon is, in fact, a hyperbolic PDE with known solutions." }
+    ],
+    "stats": [
+      { "value": "1", "label": "Lane modeled" },
+      { "value": "500", "label": "Cells" },
+      { "value": "0.5", "label": "CFL bound" },
+      { "value": "Feb 2026", "label": "Built in" }
+    ]
+  },
+  "footer": {
+    "name": "Over Engineer · P.02",
+    "tagline": "Phantom Traffic Jams · Feb 2026",
+    "links": [
+      { "label": "Repo", "href": "https://github.com/Vitalcheffe/over-engineer-traffic" },
+      { "label": "Portfolio", "href": "https://vitalcheffe.github.io" },
+      { "label": "All projects", "href": "https://github.com/Vitalcheffe?tab=repositories&q=over-engineer" }
+    ]
+  }
+}

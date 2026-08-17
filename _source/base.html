@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     CANONICAL TEMPLATE — do not vary structure between vibes.
+     Visual identity is driven by [data-vibe] + [data-colorway]
+     on <html>. See DESIGN.md before editing.
+     ============================================================ -->
+<html lang="{{PAGE_LANG}}" data-vibe="{{PAGE_VIBE}}" data-colorway="{{PAGE_COLORWAY}}" data-theme="{{PAGE_THEME}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>{{PAGE_TITLE}}</title>
+<meta name="description" content="{{PAGE_DESCRIPTION}}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23{{FAVICON_HEX}}'>{{FAVICON_GLYPH}}</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Async font load: blackholed network must not block first paint. -->
+<link id="font-stylesheet" rel="stylesheet" href="" media="print" onload="this.media='all'">
+<noscript><link id="font-stylesheet-noscript" rel="stylesheet" href=""></noscript>
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/vibes.css">
+<link rel="stylesheet" href="styles/colorways.css">
+</head>
+<body>
+
+<!-- Reading progress: thin signature line at top of viewport -->
+<div class="reading-progress" aria-hidden="true"><span></span></div>
+
+<!-- Cursor halo: subtle, vibe-driven -->
+<div class="cursor-halo" aria-hidden="true"></div>
+<div class="cursor-halo-ring" aria-hidden="true"></div>
+
+<!-- ============================================================
+     NAV — fixed, monospace logo, 3 links max, 1 CTA
+     ============================================================ -->
+<nav class="nav" data-scrolled="false">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">{{NAV_LOGO}}</a>
+    <ul class="nav-links">
+      {{NAV_LINKS}}
+    </ul>
+    <a href="{{NAV_CTA_HREF}}" class="nav-cta" target="_blank" rel="noopener">{{NAV_CTA_LABEL}} <span aria-hidden="true">↗</span></a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO — eyebrow, title (display), subtitle (mono), bio, CTA
+     Title breaks out of the container — see base.css .hero-title.
+     ============================================================ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>{{HERO_EYEBROW}}</div>
+    <h1 class="hero-title">{{HERO_TITLE_TOP}}<span class="hero-title-dim">{{HERO_TITLE_BOTTOM}}</span></h1>
+    <p class="hero-subtitle">{{HERO_SUBTITLE}}</p>
+    <p class="hero-bio">{{HERO_BIO}}</p>
+    <div class="hero-cta">
+      <a href="{{HERO_CTA_PRIMARY_HREF}}" class="btn-primary">{{HERO_CTA_PRIMARY_LABEL}} <span aria-hidden="true">↓</span></a>
+      <a href="{{HERO_CTA_GHOST_HREF}}" class="btn-ghost">{{HERO_CTA_GHOST_LABEL}}</a>
+    </div>
+  </div>
+  <!-- Hero side mark: oversized accent number in the background -->
+  <div class="hero-side-mark" aria-hidden="true">{{HERO_SIDE_MARK}}</div>
+  <!-- Hero signature mark — vibe-specific decorative element -->
+  <div class="hero-mark" aria-hidden="true">{{HERO_MARK}}</div>
+</section>
+
+<!-- ============================================================
+     STATS ROW — dense metric grid, single accent on values
+     ============================================================ -->
+<section class="stats reveal" data-reveal-order="1">
+  <div class="container">
+    <div class="stats-row">
+      {{STATS_ROW}}
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MANIFESTO — narrative prose, max-width 780px, with quote block
+     ============================================================ -->
+<section class="manifesto reveal" id="manifesto" data-reveal-order="2">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-index">{{MANIFESTO_INDEX}}</span>
+      <h2 class="section-title">{{MANIFESTO_TITLE}}</h2>
+    </div>
+    <div class="narrative">
+      {{MANIFESTO_BODY}}
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROJECTS GRID — 2 cols desktop, 1 mobile, animated top filet on hover
+     ============================================================ -->
+<section class="projects reveal" id="projects" data-reveal-order="3">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-index">{{PROJECTS_INDEX}}</span>
+      <h2 class="section-title">{{PROJECTS_TITLE}}</h2>
+    </div>
+    <div class="projects-grid">
+      {{PROJECTS_GRID}}
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT — pourquoi, with secondary stats
+     ============================================================ -->
+<section class="about reveal" id="about" data-reveal-order="4">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-index">{{ABOUT_INDEX}}</span>
+      <h2 class="section-title">{{ABOUT_TITLE}}</h2>
+    </div>
+    <div class="narrative">
+      {{ABOUT_BODY}}
+    </div>
+    <div class="about-stats">
+      {{ABOUT_STATS}}
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER — name + tagline + external links
+     ============================================================ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-name">{{FOOTER_NAME}}</div>
+      <div class="footer-tagline">{{FOOTER_TAGLINE}}</div>
+    </div>
+    <ul class="footer-links">
+      {{FOOTER_LINKS}}
+    </ul>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// INTERACTION LAYER — vanilla JS, vibe-agnostic
+// All signatures respect prefers-reduced-motion.
+// ============================================================
+(function () {
+  'use strict';
+
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- Theme bootstrap (before paint) ----
+  // Respect build-time theme unless URL param or localStorage overrides.
+  try {
+    var t = null;
+    try { t = new URLSearchParams(location.search).get('theme'); } catch (_) {}
+    if (t !== 'light' && t !== 'dark') {
+      try { t = localStorage.getItem('amine-theme'); } catch (_) {}
+    }
+    // Only override if user has explicit preference; otherwise keep build-time attribute
+    if (t === 'light' || t === 'dark') {
+      document.documentElement.setAttribute('data-theme', t);
+    }
+    // else: leave the build-time data-theme attribute as-is
+  } catch (_) {}
+
+  // ---- Theme toggle (double-click anywhere on hero) ----
+  document.addEventListener('dblclick', function (e) {
+    if (e.target.closest('.hero')) {
+      var cur = document.documentElement.getAttribute('data-theme');
+      var next = cur === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('amine-theme', next); } catch (_) {}
+    }
+  });
+
+  // ---- Nav scrolled state ----
+  var nav = document.querySelector('.nav');
+  var lastY = -1;
+  function onScroll() {
+    var y = window.scrollY;
+    if (y === lastY) return;
+    lastY = y;
+    nav.setAttribute('data-scrolled', y > 24 ? 'true' : 'false');
+    // Reading progress
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var p = h > 0 ? y / h : 0;
+    var bar = document.querySelector('.reading-progress span');
+    if (bar) bar.style.transform = 'scaleX(' + p + ')';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ---- Reveal choreography ----
+  var revealEls = document.querySelectorAll('.reveal');
+  if (prefersReduced) {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  } else if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          var order = parseInt(en.target.getAttribute('data-reveal-order') || '0', 10);
+          en.target.style.transitionDelay = (order * 80) + 'ms';
+          en.target.classList.add('visible');
+          obs.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+    revealEls.forEach(function (el) { obs.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  // ---- Cursor halo (desktop only, non-touch) ----
+  // Larger, more characterful. Outer ring trails, inner dot is precise.
+  var halo = document.querySelector('.cursor-halo');
+  var haloRing = document.querySelector('.cursor-halo-ring');
+  if (halo && !matchMedia('(pointer: coarse)').matches && !prefersReduced) {
+    var hx = 0, hy = 0, rx = 0, ry = 0, cx = 0, cy = 0, raf = 0;
+    document.addEventListener('mousemove', function (e) {
+      cx = e.clientX; cy = e.clientY;
+      if (!raf) raf = requestAnimationFrame(tick);
+    });
+    function tick() {
+      // Inner dot: snappy follow
+      hx += (cx - hx) * 0.32;
+      hy += (cy - hy) * 0.32;
+      halo.style.transform = 'translate(' + hx + 'px,' + hy + 'px)';
+      // Outer ring: laggier follow (creates the trail effect)
+      rx += (cx - rx) * 0.12;
+      ry += (cy - ry) * 0.12;
+      if (haloRing) haloRing.style.transform = 'translate(' + rx + 'px,' + ry + 'px)';
+      raf = Math.abs(cx - hx) > 0.5 || Math.abs(cy - hy) > 0.5 ? requestAnimationFrame(tick) : 0;
+    }
+    halo.style.opacity = '1';
+    if (haloRing) haloRing.style.opacity = '1';
+    // Hover state on interactive elements
+    document.querySelectorAll('a, button, .project-card, .stat-cell').forEach(function (el) {
+      el.addEventListener('mouseenter', function () {
+        halo.setAttribute('data-hover', 'true');
+        if (haloRing) haloRing.setAttribute('data-hover', 'true');
+      });
+      el.addEventListener('mouseleave', function () {
+        halo.setAttribute('data-hover', 'false');
+        if (haloRing) haloRing.setAttribute('data-hover', 'false');
+      });
+    });
+    // Click state — pulse
+    document.addEventListener('mousedown', function () {
+      halo.setAttribute('data-pressed', 'true');
+      if (haloRing) haloRing.setAttribute('data-pressed', 'true');
+    });
+    document.addEventListener('mouseup', function () {
+      halo.setAttribute('data-pressed', 'false');
+      if (haloRing) haloRing.setAttribute('data-pressed', 'false');
+    });
+  }
+
+  // ---- Magnetic buttons ----
+  // Primary + ghost CTAs subtly pull toward the cursor when within 80px.
+  if (!matchMedia('(pointer: coarse)').matches && !prefersReduced) {
+    document.querySelectorAll('.btn-primary, .btn-ghost, .nav-cta').forEach(function (el) {
+      var strength = 0.25;
+      el.addEventListener('mousemove', function (e) {
+        var r = el.getBoundingClientRect();
+        var mx = e.clientX - (r.left + r.width / 2);
+        var my = e.clientY - (r.top + r.height / 2);
+        el.style.transform = 'translate(' + (mx * strength) + 'px,' + (my * strength) + 'px)';
+      });
+      el.addEventListener('mouseleave', function () {
+        el.style.transform = '';
+      });
+    });
+  }
+
+  // ---- Scroll-velocity-aware reveal ----
+  // Elements that scroll into view faster get a more energetic entrance.
+  if (!prefersReduced && 'IntersectionObserver' in window) {
+    var lastScrollY = window.scrollY;
+    var lastScrollTime = Date.now();
+    var velocity = 0;
+    window.addEventListener('scroll', function () {
+      var now = Date.now();
+      var dy = window.scrollY - lastScrollY;
+      var dt = now - lastScrollTime;
+      if (dt > 0) velocity = Math.abs(dy / dt);
+      lastScrollY = window.scrollY;
+      lastScrollTime = now;
+    }, { passive: true });
+
+    var velObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          // Fast scroll → bigger entrance; slow scroll → subtle
+          var intensity = Math.min(velocity / 2, 1.4);
+          en.target.style.setProperty('--reveal-intensity', intensity.toFixed(2));
+          en.target.classList.add('visible');
+          velObs.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+    document.querySelectorAll('.reveal[data-reveal-order]').forEach(function (el) {
+      velObs.observe(el);
+    });
+  }
+
+  // ---- Project card 3D tilt (desktop, non-touch) ----
+  // Cards subtly tilt toward the cursor. Restrained — max 4deg.
+  if (!matchMedia('(pointer: coarse)').matches && !prefersReduced) {
+    document.querySelectorAll('.project-card').forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = 'perspective(900px) rotateY(' + (px * 3.5) + 'deg) rotateX(' + (-py * 3.5) + 'deg) translateZ(0)';
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.transform = '';
+      });
+    });
+  }
+
+  // ---- Year stamp in footer tagline ----
+  var year = new Date().getFullYear();
+  document.querySelectorAll('[data-year]').forEach(function (el) {
+    el.textContent = year;
+  });
+
+  // ---- Theme toggle: keyboard shortcut T ----
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 't' || e.key === 'T') {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      var cur = document.documentElement.getAttribute('data-theme');
+      var next = cur === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('amine-theme', next); } catch (_) {}
+    }
+  });
+
+  // ---- Nav: hide on scroll down, show on scroll up ----
+  var navEl = document.querySelector('.nav');
+  var lastNavY = 0;
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY;
+    if (y > 120 && y > lastNavY + 8) {
+      navEl.setAttribute('data-hidden', 'true');
+    } else if (y < lastNavY - 8 || y < 120) {
+      navEl.removeAttribute('data-hidden');
+    }
+    lastNavY = y;
+  }, { passive: true });
+
+  // ---- Active nav link based on visible section ----
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  if (sections.length && navLinks.length && 'IntersectionObserver' in window) {
+    var activeObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          var id = en.target.getAttribute('id');
+          navLinks.forEach(function (link) {
+            var href = link.getAttribute('href');
+            link.setAttribute('data-active', href === '#' + id ? 'true' : 'false');
+          });
+        }
+      });
+    }, { threshold: 0, rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(function (s) { activeObs.observe(s); });
+  }
+
+  // ---- Animated counter for stat-values that are pure numbers ----
+  // Each numeric stat-value ticks up from 0 to its target on first reveal.
+  if (!prefersReduced) {
+    var counterObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        var raw = el.getAttribute('data-value') || el.textContent;
+        // Only animate pure integers like "12", "240+"
+        var m = raw.match(/^(\d+)(\+?)$/);
+        if (!m) { counterObs.unobserve(el); return; }
+        var target = parseInt(m[1], 10);
+        var suffix = m[2] || '';
+        var dur = 1400;
+        var start = performance.now();
+        el.textContent = '0' + suffix;
+        function step(now) {
+          var t = Math.min((now - start) / dur, 1);
+          // ease-out cubic
+          var e = 1 - Math.pow(1 - t, 3);
+          el.textContent = Math.floor(target * e) + suffix;
+          if (t < 1) requestAnimationFrame(step);
+          else el.textContent = target + suffix;
+        }
+        requestAnimationFrame(step);
+        counterObs.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.stat-value, .about-stat-value').forEach(function (el) {
+      var raw = el.textContent.trim();
+      if (/^\d+\+?$/.test(raw)) {
+        el.setAttribute('data-value', raw);
+        counterObs.observe(el);
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

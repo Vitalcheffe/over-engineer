@@ -1,0 +1,77 @@
+{
+  "lang": "en",
+  "title": "Flocking Dynamics — Reynolds boids and Olfati-Saber distributed flocking",
+  "description": "How 500 birds turn simultaneously with no leader. Reynolds boids plus Olfati-Saber's distributed control. Emergent order parameter phase transition.",
+  "nav": {
+    "logo": "P.08 / FLOCKING",
+    "links": [
+      { "href": "#manifesto", "label": "Question" },
+      { "href": "#projects", "label": "Documentation" },
+      { "href": "#about", "label": "Methodology" }
+    ],
+    "cta": { "label": "Code", "href": "https://github.com/Vitalcheffe/over-engineer-flocking" }
+  },
+  "hero": {
+    "eyebrow": "Over Engineer · P.08 · August 2026",
+    "titleTop": "Flocking",
+    "titleBottom": "Dynamics",
+    "subtitle": "Reynolds boids · Olfati-Saber distributed control · Order parameter",
+    "bio": "How do 500 birds turn at the same time with no leader? <strong>Three local rules.</strong> Separation: avoid your neighbor. Alignment: match their velocity. Cohesion: stay close. Out of these emerges a global behavior — a phase transition in the order parameter from disorder to aligned flock.",
+    "ctaPrimary": { "label": "View the model", "href": "#projects" },
+    "ctaGhost": { "label": "Read the math", "href": "#manifesto" },
+    "mark": "P.08 / BOIDS-FLOCKING",
+    "sideMark": "ENTRY 08 · REYNOLDS BOIDS · AUG 2026"
+  },
+  "stats": [
+    { "value": "500", "label": "Agents simulated" },
+    { "value": "0.42", "label": "Final order parameter" },
+    { "value": "200", "label": "Steps to convergence" },
+    { "value": "Python", "label": "NumPy + NetworkX" },
+    { "value": "MIT", "label": "License" },
+    { "value": "Aug 2026", "label": "One-month build" }
+  ],
+  "manifesto": {
+    "index": "001 / THE QUESTION",
+    "title": "How do 500 birds turn at once?",
+    "paragraphs": [
+      { "type": "p", "text": "Watch a starling murmuration at dusk. Thousands of birds. They turn as one. No leader. No conductor. The trigger is local — one bird reacts to a predator — and the information propagates through the flock in a way that looks simultaneous from a distance. <strong>This is decentralized coordination.</strong>" },
+      { "type": "p", "text": "Craig Reynolds, in 1986, proposed that the entire behavior emerges from three rules each bird applies to its local neighbors: <strong>separation</strong> (don't get too close), <strong>alignment</strong> (match average velocity), <strong>cohesion</strong> (move toward the centroid). No global state. No leader. Yet order emerges." },
+      { "type": "quote", "text": "Order parameter ψ = (1/Nv₀) | Σ vᵢ | goes from ~0 (disorder) to 0.42 (partial alignment) in 200 steps. The transition is sharp — a phase transition, like ice melting." },
+      { "type": "p", "text": "Reynolds boids capture the phenomenology. Olfati-Saber's 2006 paper formalizes it as a distributed control problem with a Lyapunov function proving convergence. Both models are implemented here. The boids version feels alive; the Olfati-Saber version is provably correct. Both produce the same phase transition." }
+    ]
+  },
+  "projects": {
+    "index": "002 / DOCUMENTATION",
+    "title": "The model, in four sections.",
+    "items": [
+      { "num": "§ 1", "badge": "MATH", "badgeClass": "physics", "title": "Reynolds Rules", "desc": "<strong>Three rules per agent:</strong> separation (avoid neighbors within r_sep), alignment (match mean velocity of neighbors within r_alg), cohesion (move toward centroid of neighbors within r_coh). Each rule contributes a force; forces are summed and integrated.", "metric": "Forces: 3 · Neighbor radius: 30 units · dt: 0.1", "month": "Aug 2026", "href": "https://github.com/Vitalcheffe/over-engineer-flocking/blob/main/docs/math.md" },
+      { "num": "§ 2", "badge": "SIMULATION", "badgeClass": "fluid", "title": "Olfati-Saber Control", "desc": "<strong>Distributed algorithm:</strong> each agent maintains a Laplacian-based consensus on velocity. The control law uᵢ = Σ aᵢⱼ (vⱼ - vᵢ) is provably convergent for connected graphs. Implemented with sparse adjacency.", "metric": "Adjacency: sparse · L: graph Laplacian · ψ → stable", "month": "Aug 2026", "href": "https://github.com/Vitalcheffe/over-engineer-flocking/blob/main/model.py" },
+      { "num": "§ 3", "badge": "RESULTS", "badgeClass": "systems", "title": "Order Parameter Phase Transition", "desc": "<strong>Validation:</strong> ψ starts near 0 (random initial velocities). At t ≈ 100 steps, ψ begins climbing. At t ≈ 200, ψ stabilizes near 0.42 (partial alignment — never 1.0 because the cohesion force prevents full alignment).", "metric": "ψ: 0.03 → 0.42 · Transition at t≈100", "month": "Aug 2026", "href": "https://github.com/Vitalcheffe/over-engineer-flocking/blob/main/visualize.py" },
+      { "num": "§ 4", "badge": "LIMITS", "badgeClass": "control", "title": "Honest Limitations", "desc": "<strong>What this model ignores:</strong> 3D dynamics (it's 2D), predator-driven re-grouping, individual bird mass variation, visual occlusion (birds can't see through each other). Real murmurations have 3D structure this model cannot reproduce.", "metric": "2D only · No predator dynamics · Point agents", "month": "Aug 2026", "href": "https://github.com/Vitalcheffe/over-engineer-flocking/blob/main/docs/notes.md" }
+    ]
+  },
+  "about": {
+    "index": "003 / METHODOLOGY",
+    "title": "How the project is structured.",
+    "paragraphs": [
+      { "type": "p", "text": "Every Over Engineer project follows the same six-step pipeline: <strong>observe, model, simulate, optimize, visualize, document</strong>. Flocking Dynamics was observed in the wetlands south of Casablanca. The model is Reynolds boids plus Olfati-Saber. The simulation is a NumPy vectorized N-body integrator." },
+      { "type": "p", "text": "Optimization here means: choosing the right neighbor radius. Too small and the flock fragments into subgroups. Too large and the rules become global, killing the local-decentralization property. The chosen value (30 units, for a 500-agent flock in a 400×400 box) produces the cleanest phase transition." },
+      { "type": "p", "text": "Visualization is the project's deliverable: a 60-second animation showing 500 agents evolving from random initial conditions into a partially-aligned flock, with the order parameter overlaid as a corner readout. The transition is visible at t ≈ 100, exactly where theory predicts." }
+    ],
+    "stats": [
+      { "value": "500", "label": "Agents" },
+      { "value": "2D", "label": "Dimensions" },
+      { "value": "30", "label": "Neighbor radius" },
+      { "value": "Aug 2026", "label": "Built in" }
+    ]
+  },
+  "footer": {
+    "name": "Over Engineer · P.08",
+    "tagline": "Flocking Dynamics · Aug 2026",
+    "links": [
+      { "label": "Repo", "href": "https://github.com/Vitalcheffe/over-engineer-flocking" },
+      { "label": "Portfolio", "href": "https://vitalcheffe.github.io" },
+      { "label": "All projects", "href": "https://github.com/Vitalcheffe?tab=repositories&q=over-engineer" }
+    ]
+  }
+}
