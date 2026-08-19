@@ -1,0 +1,54 @@
+{
+  "benchmark": "ukf-rmse-vs-noise",
+  "date": "2026-08-18",
+  "method": "500 steps per noise level, 50-step warmup, 3D position error",
+  "motion_model": "constant-acceleration (figure-8 trajectory)",
+  "results": [
+    {
+      "sigma_m": 0.1,
+      "filter_rmse_m": 0.064,
+      "measurement_rmse_m": 0.099,
+      "improvement_ratio": 1.55,
+      "steps": 500,
+      "warmup_steps": 50
+    },
+    {
+      "sigma_m": 0.5,
+      "filter_rmse_m": 0.26,
+      "measurement_rmse_m": 0.496,
+      "improvement_ratio": 1.9,
+      "steps": 500,
+      "warmup_steps": 50
+    },
+    {
+      "sigma_m": 1,
+      "filter_rmse_m": 0.437,
+      "measurement_rmse_m": 0.988,
+      "improvement_ratio": 2.26,
+      "steps": 500,
+      "warmup_steps": 50
+    },
+    {
+      "sigma_m": 2,
+      "filter_rmse_m": 0.84,
+      "measurement_rmse_m": 2.004,
+      "improvement_ratio": 2.38,
+      "steps": 500,
+      "warmup_steps": 50
+    },
+    {
+      "sigma_m": 5,
+      "filter_rmse_m": 1.814,
+      "measurement_rmse_m": 4.995,
+      "improvement_ratio": 2.75,
+      "steps": 500,
+      "warmup_steps": 50
+    }
+  ],
+  "conclusion": {
+    "filter_always_beats_measurement": true,
+    "best_improvement": 2.75,
+    "worst_improvement": 1.55,
+    "sub_meter_at_sigma_1m": true
+  }
+}
