@@ -1,0 +1,1229 @@
+{
+  "project": "optimal-shower",
+  "parameters": {
+    "h_water": 200,
+    "body_surface": 1.8,
+    "body_temp": 37.0,
+    "ambient_temp": 22.0,
+    "shower_duration": 300,
+    "flow_rate": 0.12
+  },
+  "sweep": [
+    {
+      "water_temp": 30.0,
+      "comfort_pmv": -1.2003976022544545,
+      "comfort_ppd": 35.26688300269858,
+      "heat_loss_kj": 529.1999999999999,
+      "energy_used_kj": 2260.44,
+      "comfort_energy_ratio": 0.2653764160584585
+    },
+    {
+      "water_temp": 30.1,
+      "comfort_pmv": -1.1703856728150566,
+      "comfort_ppd": 33.813098875049164,
+      "heat_loss_kj": 521.6399999999999,
+      "energy_used_kj": 2275.5096000000003,
+      "comfort_energy_ratio": 0.26801532386195215
+    },
+    {
+      "water_temp": 30.2,
+      "comfort_pmv": -1.1403733518958592,
+      "comfort_ppd": 32.38678324009055,
+      "heat_loss_kj": 514.08,
+      "energy_used_kj": 2290.5791999999997,
+      "comfort_energy_ratio": 0.2706195661638974
+    },
+    {
+      "water_temp": 30.3,
+      "comfort_pmv": -1.1103606377614559,
+      "comfort_ppd": 30.98935725426533,
+      "heat_loss_kj": 506.51999999999987,
+      "energy_used_kj": 2305.6488000000004,
+      "comfort_energy_ratio": 0.2731898229309026
+    },
+    {
+      "water_temp": 30.4,
+      "comfort_pmv": -1.0803475286703697,
+      "comfort_ppd": 29.62213493669219,
+      "heat_loss_kj": 498.96000000000004,
+      "energy_used_kj": 2320.7183999999997,
+      "comfort_energy_ratio": 0.2757267564689782
+    },
+    {
+      "water_temp": 30.5,
+      "comfort_pmv": -1.050334022875028,
+      "comfort_ppd": 28.28632448582674,
+      "heat_loss_kj": 491.3999999999999,
+      "energy_used_kj": 2335.788,
+      "comfort_energy_ratio": 0.27823101199323624
+    },
+    {
+      "water_temp": 30.6,
+      "comfort_pmv": -1.020320118621755,
+      "comfort_ppd": 26.983030180726317,
+      "heat_loss_kj": 483.8399999999998,
+      "energy_used_kj": 2350.8576000000003,
+      "comfort_energy_ratio": 0.280703218175677
+    },
+    {
+      "water_temp": 30.7,
+      "comfort_pmv": -0.9903058141507507,
+      "comfort_ppd": 25.713254815323197,
+      "heat_loss_kj": 476.28,
+      "energy_used_kj": 2365.9271999999996,
+      "comfort_energy_ratio": 0.2831439876720424
+    },
+    {
+      "water_temp": 30.8,
+      "comfort_pmv": -0.9602911076960754,
+      "comfort_ppd": 24.47790261349367,
+      "heat_loss_kj": 468.71999999999986,
+      "energy_used_kj": 2380.9968000000003,
+      "comfort_energy_ratio": 0.2855539176286621
+    },
+    {
+      "water_temp": 30.9,
+      "comfort_pmv": -0.9302759974856398,
+      "comfort_ppd": 23.27778257266108,
+      "heat_loss_kj": 461.1600000000001,
+      "energy_used_kj": 2396.0663999999997,
+      "comfort_energy_ratio": 0.2879335901701722
+    },
+    {
+      "water_temp": 31.0,
+      "comfort_pmv": -0.9002604817411816,
+      "comfort_ppd": 22.11361218413232,
+      "heat_loss_kj": 453.59999999999997,
+      "energy_used_kj": 2411.136,
+      "comfort_energy_ratio": 0.29028357286894624
+    },
+    {
+      "water_temp": 31.1,
+      "comfort_pmv": -0.8702445586782531,
+      "comfort_ppd": 20.986021479283934,
+      "heat_loss_kj": 446.03999999999985,
+      "energy_used_kj": 2426.2056000000002,
+      "comfort_energy_ratio": 0.2926044191970302
+    },
+    {
+      "water_temp": 31.2,
+      "comfort_pmv": -0.8402282265062079,
+      "comfort_ppd": 19.895557352019054,
+      "heat_loss_kj": 438.48,
+      "energy_used_kj": 2441.2751999999996,
+      "comfort_energy_ratio": 0.2948966689613407
+    },
+    {
+      "water_temp": 31.3,
+      "comfort_pmv": -0.8102114834281802,
+      "comfort_ppd": 18.842688109558154,
+      "heat_loss_kj": 430.9199999999999,
+      "energy_used_kj": 2456.3448000000003,
+      "comfort_energy_ratio": 0.2971608487228421
+    },
+    {
+      "water_temp": 31.4,
+      "comfort_pmv": -0.7801943276410731,
+      "comfort_ppd": 17.82780820554663,
+      "heat_loss_kj": 423.36000000000007,
+      "energy_used_kj": 2471.4144,
+      "comfort_energy_ratio": 0.2993974722003895
+    },
+    {
+      "water_temp": 31.5,
+      "comfort_pmv": -0.7501767573355391,
+      "comfort_ppd": 16.851243111604347,
+      "heat_loss_kj": 415.79999999999995,
+      "energy_used_kj": 2486.484,
+      "comfort_energy_ratio": 0.3016070406598851
+    },
+    {
+      "water_temp": 31.6,
+      "comfort_pmv": -0.7201587706959657,
+      "comfort_ppd": 15.913254285760729,
+      "heat_loss_kj": 408.23999999999984,
+      "energy_used_kj": 2501.5536,
+      "comfort_energy_ratio": 0.3037900432893694
+    },
+    {
+      "water_temp": 31.7,
+      "comfort_pmv": -0.6901403659004657,
+      "comfort_ppd": 15.014044198661693,
+      "heat_loss_kj": 400.68000000000006,
+      "energy_used_kj": 2516.6231999999995,
+      "comfort_energy_ratio": 0.30594695756063583
+    },
+    {
+      "water_temp": 31.8,
+      "comfort_pmv": -0.6601215411208479,
+      "comfort_ppd": 14.153761380960248,
+      "heat_loss_kj": 393.1199999999999,
+      "energy_used_kj": 2531.6928000000003,
+      "comfort_energy_ratio": 0.3080782495779309
+    },
+    {
+      "water_temp": 31.9,
+      "comfort_pmv": -0.6301022945226127,
+      "comfort_ppd": 13.332505457874987,
+      "heat_loss_kj": 385.56000000000006,
+      "energy_used_kj": 2546.7624,
+      "comfort_energy_ratio": 0.31018437441427427
+    },
+    {
+      "water_temp": 32.0,
+      "comfort_pmv": -0.6000826242649298,
+      "comfort_ppd": 12.550332139474449,
+      "heat_loss_kj": 377.99999999999994,
+      "energy_used_kj": 2561.832,
+      "comfort_energy_ratio": 0.3122657764359087
+    },
+    {
+      "water_temp": 32.1,
+      "comfort_pmv": -0.5700625285006286,
+      "comfort_ppd": 11.80725813780289,
+      "heat_loss_kj": 370.4399999999998,
+      "energy_used_kj": 2576.9016,
+      "comfort_energy_ratio": 0.31432288961536486
+    },
+    {
+      "water_temp": 32.2,
+      "comfort_pmv": -0.540042005376175,
+      "comfort_ppd": 11.10326598446342,
+      "heat_loss_kj": 362.87999999999977,
+      "energy_used_kj": 2591.971200000001,
+      "comfort_energy_ratio": 0.31635613783360766
+    },
+    {
+      "water_temp": 32.3,
+      "comfort_pmv": -0.510021053031659,
+      "comfort_ppd": 10.438308724705394,
+      "heat_loss_kj": 355.32000000000016,
+      "energy_used_kj": 2607.0407999999993,
+      "comfort_energy_ratio": 0.3183659351717014
+    },
+    {
+      "water_temp": 32.4,
+      "comfort_pmv": -0.47999966960077733,
+      "comfort_ppd": 9.812314466396884,
+      "heat_loss_kj": 347.76000000000005,
+      "energy_used_kj": 2622.1104,
+      "comfort_energy_ratio": 0.32035268619241747
+    },
+    {
+      "water_temp": 32.5,
+      "comfort_pmv": -0.44997785321081757,
+      "comfort_ppd": 9.225190764488502,
+      "heat_loss_kj": 340.19999999999993,
+      "energy_used_kj": 2637.18,
+      "comfort_energy_ratio": 0.3223167862121891
+    },
+    {
+      "water_temp": 32.6,
+      "comfort_pmv": -0.4199556019826488,
+      "comfort_ppd": 8.676828823678292,
+      "heat_loss_kj": 332.6399999999998,
+      "energy_used_kj": 2652.2496,
+      "comfort_energy_ratio": 0.32425862156379137
+    },
+    {
+      "water_temp": 32.7,
+      "comfort_pmv": -0.38993291403069025,
+      "comfort_ppd": 8.16710750395805,
+      "heat_loss_kj": 325.07999999999976,
+      "energy_used_kj": 2667.319200000001,
+      "comfort_energy_ratio": 0.32617856985012134
+    },
+    {
+      "water_temp": 32.8,
+      "comfort_pmv": -0.3599097874629119,
+      "comfort_ppd": 7.695897115556775,
+      "heat_loss_kj": 317.52000000000015,
+      "energy_used_kj": 2682.3887999999993,
+      "comfort_energy_ratio": 0.3280770001894194
+    },
+    {
+      "water_temp": 32.9,
+      "comfort_pmv": -0.32988622038080395,
+      "comfort_ppd": 7.2630629914869616,
+      "heat_loss_kj": 309.96000000000004,
+      "energy_used_kj": 2697.4584,
+      "comfort_energy_ratio": 0.32995427345227346
+    },
+    {
+      "water_temp": 33.0,
+      "comfort_pmv": -0.29986221087937137,
+      "comfort_ppd": 6.868468827452432,
+      "heat_loss_kj": 302.3999999999999,
+      "energy_used_kj": 2712.528,
+      "comfort_energy_ratio": 0.3318107424907232
+    },
+    {
+      "water_temp": 33.1,
+      "comfort_pmv": -0.2698377570471143,
+      "comfort_ppd": 6.511979780282829,
+      "heat_loss_kj": 294.8399999999998,
+      "energy_used_kj": 2727.5976,
+      "comfort_energy_ratio": 0.3336467523597671
+    },
+    {
+      "water_temp": 33.2,
+      "comfort_pmv": -0.239812856966007,
+      "comfort_ppd": 6.193465317333505,
+      "heat_loss_kj": 287.27999999999975,
+      "energy_used_kj": 2742.667200000001,
+      "comfort_energy_ratio": 0.33546264053157115
+    },
+    {
+      "water_temp": 33.3,
+      "comfort_pmv": -0.20978750871149243,
+      "comfort_ppd": 5.912801810427425,
+      "heat_loss_kj": 279.7200000000002,
+      "energy_used_kj": 2757.736799999999,
+      "comfort_energy_ratio": 0.3372587371026498
+    },
+    {
+      "water_temp": 33.4,
+      "comfort_pmv": -0.17976171035244815,
+      "comfort_ppd": 5.669874868929156,
+      "heat_loss_kj": 272.1600000000001,
+      "energy_used_kj": 2772.8064,
+      "comfort_energy_ratio": 0.33903536499429504
+    },
+    {
+      "water_temp": 33.5,
+      "comfort_pmv": -0.14973545995119422,
+      "comfort_ppd": 5.464581407437336,
+      "heat_loss_kj": 264.59999999999997,
+      "energy_used_kj": 2787.876,
+      "comfort_energy_ratio": 0.34079284014650174
+    },
+    {
+      "water_temp": 33.6,
+      "comfort_pmv": -0.11970875556345252,
+      "comfort_ppd": 5.296831444368465,
+      "heat_loss_kj": 257.03999999999985,
+      "energy_used_kj": 2802.9456,
+      "comfort_energy_ratio": 0.34253147170564036
+    },
+    {
+      "water_temp": 33.7,
+      "comfort_pmv": -0.08968159523834987,
+      "comfort_ppd": 5.166549628396368,
+      "heat_loss_kj": 249.47999999999976,
+      "energy_used_kj": 2818.0152000000007,
+      "comfort_energy_ratio": 0.3442515622061052
+    },
+    {
+      "water_temp": 33.8,
+      "comfort_pmv": -0.059653977018389856,
+      "comfort_ppd": 5.073676490314085,
+      "heat_loss_kj": 241.92000000000021,
+      "energy_used_kj": 2833.084799999999,
+      "comfort_energy_ratio": 0.3459534077461678
+    },
+    {
+      "water_temp": 33.9,
+      "comfort_pmv": -0.02962589893943753,
+      "comfort_ppd": 5.018169418415212,
+      "heat_loss_kj": 234.3600000000001,
+      "energy_used_kj": 2848.1544,
+      "comfort_energy_ratio": 0.34763729815824623
+    },
+    {
+      "water_temp": 34.0,
+      "comfort_pmv": 0.00040264096929020366,
+      "comfort_ppd": 5.000003355959919,
+      "heat_loss_kj": 226.79999999999998,
+      "energy_used_kj": 2863.224,
+      "comfort_energy_ratio": 0.3492097671518435
+    },
+    {
+      "water_temp": 34.1,
+      "comfort_pmv": 0.03043164468525018,
+      "comfort_ppd": 5.019171219710373,
+      "heat_loss_kj": 219.2399999999999,
+      "energy_used_kj": 2878.2936,
+      "comfort_energy_ratio": 0.3439038041283384
+    },
+    {
+      "water_temp": 34.2,
+      "comfort_pmv": 0.0604611141925768,
+      "comfort_ppd": 5.075684038906289,
+      "heat_loss_kj": 211.67999999999978,
+      "energy_used_kj": 2893.3632000000007,
+      "comfort_energy_ratio": 0.3386530578909488
+    },
+    {
+      "water_temp": 34.3,
+      "comfort_pmv": 0.09049105148211464,
+      "comfort_ppd": 5.169570814415749,
+      "heat_loss_kj": 204.1200000000002,
+      "energy_used_kj": 2908.432799999999,
+      "comfort_energy_ratio": 0.33345666991949363
+    },
+    {
+      "water_temp": 34.4,
+      "comfort_pmv": 0.12052145855142171,
+      "comfort_ppd": 5.300878098154527,
+      "heat_loss_kj": 196.5600000000001,
+      "energy_used_kj": 2923.5024,
+      "comfort_energy_ratio": 0.3283137993944727
+    },
+    {
+      "water_temp": 34.5,
+      "comfort_pmv": 0.1505523374047956,
+      "comfort_ppd": 5.469669293232755,
+      "heat_loss_kj": 188.99999999999997,
+      "energy_used_kj": 2938.572,
+      "comfort_energy_ratio": 0.3232236227432014
+    },
+    {
+      "water_temp": 34.6,
+      "comfort_pmv": 0.1805836900532786,
+      "comfort_ppd": 5.676023675674713,
+      "heat_loss_kj": 181.43999999999988,
+      "energy_used_kj": 2953.6416,
+      "comfort_energy_ratio": 0.3181853331998395
+    },
+    {
+      "water_temp": 34.7,
+      "comfort_pmv": 0.2106155185146872,
+      "comfort_ppd": 5.920035138979884,
+      "heat_loss_kj": 173.87999999999977,
+      "energy_used_kj": 2968.7112000000006,
+      "comfort_energy_ratio": 0.31319814037881855
+    },
+    {
+      "water_temp": 34.8,
+      "comfort_pmv": 0.24064782481361652,
+      "comfort_ppd": 6.201810663264851,
+      "heat_loss_kj": 166.3200000000002,
+      "energy_used_kj": 2983.7807999999995,
+      "comfort_energy_ratio": 0.308261269861198
+    },
+    {
+      "water_temp": 34.9,
+      "comfort_pmv": 0.2706806109814722,
+      "comfort_ppd": 6.52146851125967,
+      "heat_loss_kj": 158.76000000000008,
+      "energy_used_kj": 2998.8504,
+      "comfort_energy_ratio": 0.30337396279349005
+    },
+    {
+      "water_temp": 35.0,
+      "comfort_pmv": 0.3007138790564688,
+      "comfort_ppd": 6.879136154040808,
+      "heat_loss_kj": 151.19999999999996,
+      "energy_used_kj": 3013.92,
+      "comfort_energy_ratio": 0.2985354754985236
+    },
+    {
+      "water_temp": 35.1,
+      "comfort_pmv": 0.3307476310836574,
+      "comfort_ppd": 7.274947930080245,
+      "heat_loss_kj": 143.63999999999987,
+      "energy_used_kj": 3028.9896,
+      "comfort_energy_ratio": 0.29374507909792125
+    },
+    {
+      "water_temp": 35.2,
+      "comfort_pmv": 0.3607818691149441,
+      "comfort_ppd": 7.709042441984764,
+      "heat_loss_kj": 136.07999999999976,
+      "energy_used_kj": 3044.0592000000006,
+      "comfort_energy_ratio": 0.28900205914578964
+    },
+    {
+      "water_temp": 35.3,
+      "comfort_pmv": 0.39081659520909656,
+      "comfort_ppd": 8.181559696205284,
+      "heat_loss_kj": 128.5200000000002,
+      "energy_used_kj": 3059.1287999999995,
+      "comfort_energy_ratio": 0.2843057152732399
+    },
+    {
+      "water_temp": 35.4,
+      "comfort_pmv": 0.4208518114317757,
+      "comfort_ppd": 8.69263799201984,
+      "heat_loss_kj": 120.96000000000011,
+      "energy_used_kj": 3074.1983999999998,
+      "comfort_energy_ratio": 0.2796553608433583
+    },
+    {
+      "water_temp": 35.5,
+      "comfort_pmv": 0.45088751985553555,
+      "comfort_ppd": 9.24241056724577,
+      "heat_loss_kj": 113.39999999999999,
+      "energy_used_kj": 3089.268,
+      "comfort_energy_ratio": 0.27505032261628154
+    },
+    {
+      "water_temp": 35.6,
+      "comfort_pmv": 0.4809237225598539,
+      "comfort_ppd": 9.831002009422946,
+      "heat_loss_kj": 105.83999999999989,
+      "energy_used_kj": 3104.3376000000003,
+      "comfort_energy_ratio": 0.27048994042402114
+    },
+    {
+      "water_temp": 35.7,
+      "comfort_pmv": 0.5109604216311388,
+      "comfort_ppd": 10.458524442635166,
+      "heat_loss_kj": 98.27999999999977,
+      "energy_used_kj": 3119.4072000000006,
+      "comfort_energy_ratio": 0.2659735668547174
+    },
+    {
+      "water_temp": 35.8,
+      "comfort_pmv": 0.5409976191627515,
+      "comfort_ppd": 11.125073501707135,
+      "heat_loss_kj": 90.7200000000002,
+      "energy_used_kj": 3134.4767999999995,
+      "comfort_energy_ratio": 0.26150056694599977
+    },
+    {
+      "water_temp": 35.9,
+      "comfort_pmv": 0.5710353172550275,
+      "comfort_ppd": 11.83072410722707,
+      "heat_loss_kj": 83.1600000000001,
+      "energy_used_kj": 3149.5463999999997,
+      "comfort_energy_ratio": 0.2570703178871485
+    },
+    {
+      "water_temp": 36.0,
+      "comfort_pmv": 0.6010735180152784,
+      "comfort_ppd": 12.575526056703026,
+      "heat_loss_kj": 75.59999999999998,
+      "energy_used_kj": 3164.616,
+      "comfort_energy_ratio": 0.25268220872977126
+    },
+    {
+      "water_temp": 36.1,
+      "comfort_pmv": 0.6311122235578255,
+      "comfort_ppd": 13.35949944916021,
+      "heat_loss_kj": 68.03999999999988,
+      "energy_used_kj": 3179.6856000000002,
+      "comfort_energy_ratio": 0.24833564010670056
+    },
+    {
+      "water_temp": 36.2,
+      "comfort_pmv": 0.6611514360040041,
+      "comfort_ppd": 14.182629962616517,
+      "heat_loss_kj": 60.47999999999978,
+      "energy_used_kj": 3194.7552000000005,
+      "comfort_energy_ratio": 0.2440300239588514
+    },
+    {
+      "water_temp": 36.3,
+      "comfort_pmv": 0.6911911574821862,
+      "comfort_ppd": 15.044864006133267,
+      "heat_loss_kj": 52.9200000000002,
+      "energy_used_kj": 3209.8247999999994,
+      "comfort_energy_ratio": 0.23976478326977163
+    },
+    {
+      "water_temp": 36.4,
+      "comfort_pmv": 0.7212313901278029,
+      "comfort_ppd": 15.946103770506,
+      "heat_loss_kj": 45.3600000000001,
+      "energy_used_kj": 3224.8944,
+      "comfort_energy_ratio": 0.23553935180763308
+    },
+    {
+      "water_temp": 36.5,
+      "comfort_pmv": 0.7512721360833475,
+      "comfort_ppd": 16.886202204127017,
+      "heat_loss_kj": 37.79999999999999,
+      "energy_used_kj": 3239.964,
+      "comfort_energy_ratio": 0.23135317387442705
+    },
+    {
+      "water_temp": 36.6,
+      "comfort_pmv": 0.7813133974984053,
+      "comfort_ppd": 17.86495794309495,
+      "heat_loss_kj": 30.23999999999989,
+      "energy_used_kj": 3255.0336,
+      "comfort_energy_ratio": 0.2272057040621224
+    },
+    {
+      "water_temp": 36.7,
+      "comfort_pmv": 0.8113551765296606,
+      "comfort_ppd": 18.882110227241583,
+      "heat_loss_kj": 22.679999999999783,
+      "energy_used_kj": 3270.1032000000005,
+      "comfort_energy_ratio": 0.2230964070155685
+    },
+    {
+      "water_temp": 36.8,
+      "comfort_pmv": 0.8413974753409238,
+      "comfort_ppd": 19.937333836368992,
+      "heat_loss_kj": 15.120000000000212,
+      "energy_used_kj": 3285.1727999999994,
+      "comfort_energy_ratio": 0.2190247572019222
+    },
+    {
+      "water_temp": 36.9,
+      "comfort_pmv": 0.8714402961031406,
+      "comfort_ppd": 21.030234083604427,
+      "heat_loss_kj": 7.560000000000106,
+      "energy_used_kj": 3300.2424,
+      "comfort_energy_ratio": 0.2149902386863926
+    },
+    {
+      "water_temp": 37.0,
+      "comfort_pmv": 0.9014836409944141,
+      "comfort_ppd": 22.160341905354798,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3315.312,
+      "comfort_energy_ratio": 0.21099234491410218
+    },
+    {
+      "water_temp": 37.1,
+      "comfort_pmv": 0.9315275122000163,
+      "comfort_ppd": 23.32710908983259,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3330.3816,
+      "comfort_energy_ratio": 0.20703057849786982
+    },
+    {
+      "water_temp": 37.2,
+      "comfort_pmv": 0.9615719119124075,
+      "comfort_ppd": 24.529903688490933,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3345.4512000000004,
+      "comfort_energy_ratio": 0.2031044510117292
+    },
+    {
+      "water_temp": 37.3,
+      "comfort_pmv": 0.9916168423312589,
+      "comfort_ppd": 25.768005656895184,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3360.5207999999993,
+      "comfort_energy_ratio": 0.199213482790003
+    },
+    {
+      "water_temp": 37.4,
+      "comfort_pmv": 1.0216623056634642,
+      "comfort_ppd": 27.04060277352262,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3375.5904,
+      "comfort_energy_ratio": 0.19535720273175877
+    },
+    {
+      "water_temp": 37.5,
+      "comfort_pmv": 1.0517083041231556,
+      "comfort_ppd": 28.346786886666564,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3390.66,
+      "comfort_energy_ratio": 0.19153514811048036
+    },
+    {
+      "water_temp": 37.6,
+      "comfort_pmv": 1.0817548399317225,
+      "comfort_ppd": 29.685550540967014,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3405.7296,
+      "comfort_energy_ratio": 0.18774686438879132
+    },
+    {
+      "water_temp": 37.7,
+      "comfort_pmv": 1.1118019153178336,
+      "comfort_ppd": 31.05578403603826,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3420.799200000001,
+      "comfort_energy_ratio": 0.18399190503807472
+    },
+    {
+      "water_temp": 37.8,
+      "comfort_pmv": 1.1418495325174436,
+      "comfort_ppd": 32.456272970154174,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3435.8687999999993,
+      "comfort_energy_ratio": 0.18026983136284255
+    },
+    {
+      "water_temp": 37.9,
+      "comfort_pmv": 1.171897693773825,
+      "comfort_ppd": 33.88569632192589,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3450.9384,
+      "comfort_energy_ratio": 0.17658021232970286
+    },
+    {
+      "water_temp": 38.0,
+      "comfort_pmv": 1.2019464013375707,
+      "comfort_ppd": 35.34262512229648,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3466.008,
+      "comfort_energy_ratio": 0.17292262440079284
+    },
+    {
+      "water_temp": 38.1,
+      "comfort_pmv": 1.2319956574666184,
+      "comfort_ppd": 36.82552176793713,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3481.0776,
+      "comfort_energy_ratio": 0.1692966513715352
+    },
+    {
+      "water_temp": 38.2,
+      "comfort_pmv": 1.2620454644262704,
+      "comfort_ppd": 38.33274002519057,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3496.147200000001,
+      "comfort_energy_ratio": 0.1657018842125916
+    },
+    {
+      "water_temp": 38.3,
+      "comfort_pmv": 1.2920958244892005,
+      "comfort_ppd": 39.86252577103085,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3511.2167999999992,
+      "comfort_energy_ratio": 0.16213792091588686
+    },
+    {
+      "water_temp": 38.4,
+      "comfort_pmv": 1.3221467399354923,
+      "comfort_ppd": 41.41301851404695,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3526.2864,
+      "comfort_energy_ratio": 0.15860436634457784
+    },
+    {
+      "water_temp": 38.5,
+      "comfort_pmv": 1.3521982130526282,
+      "comfort_ppd": 42.982253734166946,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3541.356,
+      "comfort_energy_ratio": 0.155100832086859
+    },
+    {
+      "water_temp": 38.6,
+      "comfort_pmv": 1.3822502461355313,
+      "comfort_ppd": 44.56816607471512,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3556.4256,
+      "comfort_energy_ratio": 0.151626936313478
+    },
+    {
+      "water_temp": 38.7,
+      "comfort_pmv": 1.4123028414865673,
+      "comfort_ppd": 46.16859341438865,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3571.4952000000008,
+      "comfort_energy_ratio": 0.1481823036388637
+    },
+    {
+      "water_temp": 38.8,
+      "comfort_pmv": 1.4423560014155685,
+      "comfort_ppd": 47.781281839887406,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3586.564799999999,
+      "comfort_energy_ratio": 0.144766564985752
+    },
+    {
+      "water_temp": 38.9,
+      "comfort_pmv": 1.4724097282398558,
+      "comfort_ppd": 49.403891532213606,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3601.6344,
+      "comfort_energy_ratio": 0.14137935745321106
+    },
+    {
+      "water_temp": 39.0,
+      "comfort_pmv": 1.5024640242842442,
+      "comfort_ppd": 51.03400357112276,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3616.704,
+      "comfort_energy_ratio": 0.13802032418796745
+    },
+    {
+      "water_temp": 39.1,
+      "comfort_pmv": 1.5325188918810717,
+      "comfort_ppd": 52.66912765289881,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3631.7736,
+      "comfort_energy_ratio": 0.1346891142589329
+    },
+    {
+      "water_temp": 39.2,
+      "comfort_pmv": 1.5625743333702053,
+      "comfort_ppd": 54.30671070659984,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3646.8432000000007,
+      "comfort_energy_ratio": 0.13138538253484497
+    },
+    {
+      "water_temp": 39.3,
+      "comfort_pmv": 1.592630351099073,
+      "comfort_ppd": 55.944146383278216,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3661.912799999999,
+      "comfort_energy_ratio": 0.12810878956492605
+    },
+    {
+      "water_temp": 39.4,
+      "comfort_pmv": 1.6226869474226693,
+      "comfort_ppd": 57.578785381506734,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3676.9824,
+      "comfort_energy_ratio": 0.1248590014624792
+    },
+    {
+      "water_temp": 39.5,
+      "comfort_pmv": 1.6527441247035803,
+      "comfort_ppd": 59.207946560985945,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3692.052,
+      "comfort_energy_ratio": 0.12163568979133371
+    },
+    {
+      "water_temp": 39.6,
+      "comfort_pmv": 1.682801885311995,
+      "comfort_ppd": 60.82892878419466,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3707.1216,
+      "comfort_energy_ratio": 0.1184385314550607
+    },
+    {
+      "water_temp": 39.7,
+      "comfort_pmv": 1.7128602316257242,
+      "comfort_ppd": 62.43902341415541,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3722.1912000000007,
+      "comfort_energy_ratio": 0.11526720858887955
+    },
+    {
+      "water_temp": 39.8,
+      "comfort_pmv": 1.7429191660302243,
+      "comfort_ppd": 64.03552738459283,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3737.2607999999996,
+      "comfort_energy_ratio": 0.11212140845417905
+    },
+    {
+      "water_temp": 39.9,
+      "comfort_pmv": 1.7729786909186118,
+      "comfort_ppd": 65.61575674726726,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3752.3304,
+      "comfort_energy_ratio": 0.10900082333558084
+    },
+    {
+      "water_temp": 40.0,
+      "comfort_pmv": 1.803038808691675,
+      "comfort_ppd": 67.17706059028288,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3767.4,
+      "comfort_energy_ratio": 0.10590515044047397
+    },
+    {
+      "water_temp": 40.1,
+      "comfort_pmv": 1.833099521757898,
+      "comfort_ppd": 68.71683521091671,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3782.4696,
+      "comfort_energy_ratio": 0.10283409180094948
+    },
+    {
+      "water_temp": 40.2,
+      "comfort_pmv": 1.8631608325334799,
+      "comfort_ppd": 70.23253841722034,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3797.5392000000006,
+      "comfort_energy_ratio": 0.09978735417807054
+    },
+    {
+      "water_temp": 40.3,
+      "comfort_pmv": 1.8932227434423428,
+      "comfort_ppd": 71.72170382454232,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3812.6087999999995,
+      "comfort_energy_ratio": 0.09676464896841391
+    },
+    {
+      "water_temp": 40.4,
+      "comfort_pmv": 1.9232852569161676,
+      "comfort_ppd": 73.18195500643205,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3827.6784,
+      "comfort_energy_ratio": 0.09376569211281634
+    },
+    {
+      "water_temp": 40.5,
+      "comfort_pmv": 1.9533483753943905,
+      "comfort_ppd": 74.61101935432359,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3842.748,
+      "comfort_energy_ratio": 0.090790204007272
+    },
+    {
+      "water_temp": 40.6,
+      "comfort_pmv": 1.9834121013242352,
+      "comfort_ppd": 76.00674149718216,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3857.8176000000003,
+      "comfort_energy_ratio": 0.08783790941591475
+    },
+    {
+      "water_temp": 40.7,
+      "comfort_pmv": 2.013476437160724,
+      "comfort_ppd": 77.36709613108405,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3872.8872000000006,
+      "comfort_energy_ratio": 0.08490853738603385
+    },
+    {
+      "water_temp": 40.8,
+      "comfort_pmv": 2.043541385366698,
+      "comfort_ppd": 78.69020010967184,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3887.9567999999995,
+      "comfort_energy_ratio": 0.08200182116506559
+    },
+    {
+      "water_temp": 40.9,
+      "comfort_pmv": 2.0736069484128437,
+      "comfort_ppd": 79.97432364968567,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3903.0263999999997,
+      "comfort_energy_ratio": 0.07911749811950683
+    },
+    {
+      "water_temp": 41.0,
+      "comfort_pmv": 2.1036731287776895,
+      "comfort_ppd": 81.21790051141261,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3918.096,
+      "comfort_energy_ratio": 0.07625530965570271
+    },
+    {
+      "water_temp": 41.1,
+      "comfort_pmv": 2.1337399289476444,
+      "comfort_ppd": 82.41953702196022,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3933.1656000000003,
+      "comfort_energy_ratio": 0.07341500114245174
+    },
+    {
+      "water_temp": 41.2,
+      "comfort_pmv": 2.163807351417004,
+      "comfort_ppd": 83.57801981973077,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3948.2352000000005,
+      "comfort_energy_ratio": 0.07059632183538572
+    },
+    {
+      "water_temp": 41.3,
+      "comfort_pmv": 2.193875398687973,
+      "comfort_ppd": 84.69232221130589,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3963.3047999999994,
+      "comfort_energy_ratio": 0.06779902480307404
+    },
+    {
+      "water_temp": 41.4,
+      "comfort_pmv": 2.2239440732706885,
+      "comfort_ppd": 85.76160904702112,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3978.3743999999997,
+      "comfort_energy_ratio": 0.06502286685480645
+    },
+    {
+      "water_temp": 41.5,
+      "comfort_pmv": 2.254013377683221,
+      "comfort_ppd": 86.78524003865442,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 3993.444,
+      "comfort_energy_ratio": 0.062267608470013926
+    },
+    {
+      "water_temp": 41.6,
+      "comfort_pmv": 2.2840833144516157,
+      "comfort_ppd": 87.76277146165233,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4008.5136,
+      "comfort_energy_ratio": 0.05953301372927731
+    },
+    {
+      "water_temp": 41.7,
+      "comfort_pmv": 2.314153886109885,
+      "comfort_ppd": 88.69395620488187,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4023.5832000000005,
+      "comfort_energy_ratio": 0.05681885024689061
+    },
+    {
+      "water_temp": 41.8,
+      "comfort_pmv": 2.3442250952000476,
+      "comfort_ppd": 89.57874215272109,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4038.6527999999994,
+      "comfort_energy_ratio": 0.05412488910493061
+    },
+    {
+      "water_temp": 41.9,
+      "comfort_pmv": 2.3742969442721416,
+      "comfort_ppd": 90.4172689069905,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4053.7224,
+      "comfort_energy_ratio": 0.051450904788798435
+    },
+    {
+      "water_temp": 42.0,
+      "comfort_pmv": 2.404369435884237,
+      "comfort_ppd": 91.20986287939351,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4068.792,
+      "comfort_energy_ratio": 0.048796675124194354
+    },
+    {
+      "water_temp": 42.1,
+      "comfort_pmv": 2.3884918683180447,
+      "comfort_ppd": 90.79709080575763,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4083.8616,
+      "comfort_energy_ratio": 0.04991257389672194
+    },
+    {
+      "water_temp": 42.2,
+      "comfort_pmv": 2.3726142679003455,
+      "comfort_ppd": 90.37156647894744,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4098.931200000001,
+      "comfort_energy_ratio": 0.051020270202766886
+    },
+    {
+      "water_temp": 42.3,
+      "comfort_pmv": 2.3567366345888865,
+      "comfort_ppd": 89.93322234955059,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4114.0008,
+      "comfort_energy_ratio": 0.05211985418274701
+    },
+    {
+      "water_temp": 42.4,
+      "comfort_pmv": 2.340858968341363,
+      "comfort_ppd": 89.48200492321953,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4129.0704,
+      "comfort_energy_ratio": 0.053211414661165794
+    },
+    {
+      "water_temp": 42.5,
+      "comfort_pmv": 2.324981269115431,
+      "comfort_ppd": 89.01787504042147,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4144.14,
+      "comfort_energy_ratio": 0.05429503917053711
+    },
+    {
+      "water_temp": 42.6,
+      "comfort_pmv": 2.3091035368686987,
+      "comfort_ppd": 88.54080812264147,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4159.2096,
+      "comfort_energy_ratio": 0.05537081397479152
+    },
+    {
+      "water_temp": 42.7,
+      "comfort_pmv": 2.2932257715587343,
+      "comfort_ppd": 88.05079438424147,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4174.279200000001,
+      "comfort_energy_ratio": 0.056438824092174246
+    },
+    {
+      "water_temp": 42.8,
+      "comfort_pmv": 2.277347973143056,
+      "comfort_ppd": 87.54783900931452,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4189.3488,
+      "comfort_energy_ratio": 0.05749915331765039
+    },
+    {
+      "water_temp": 42.9,
+      "comfort_pmv": 2.2614701415791427,
+      "comfort_ppd": 87.03196229301531,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4204.4184,
+      "comfort_energy_ratio": 0.058551884244826616
+    },
+    {
+      "water_temp": 43.0,
+      "comfort_pmv": 2.2455922768244196,
+      "comfort_ppd": 86.50319974698687,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4219.488,
+      "comfort_energy_ratio": 0.05959709828740519
+    },
+    {
+      "water_temp": 43.1,
+      "comfort_pmv": 2.2297143788362797,
+      "comfort_ppd": 85.96160216864673,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4234.557600000001,
+      "comfort_energy_ratio": 0.06063487570017707
+    },
+    {
+      "water_temp": 43.2,
+      "comfort_pmv": 2.213836447572061,
+      "comfort_ppd": 85.40723567423257,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4249.6272,
+      "comfort_energy_ratio": 0.06166529559957159
+    },
+    {
+      "water_temp": 43.3,
+      "comfort_pmv": 2.1979584829890615,
+      "comfort_ppd": 84.84018169565017,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4264.6968,
+      "comfort_energy_ratio": 0.06268843598376783
+    },
+    {
+      "water_temp": 43.4,
+      "comfort_pmv": 2.1820804850445317,
+      "comfort_ppd": 84.26053694129953,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4279.7663999999995,
+      "comfort_energy_ratio": 0.06370437375238272
+    },
+    {
+      "water_temp": 43.5,
+      "comfort_pmv": 2.1662024536956808,
+      "comfort_ppd": 83.6684133211912,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4294.836,
+      "comfort_energy_ratio": 0.06471318472574343
+    },
+    {
+      "water_temp": 43.6,
+      "comfort_pmv": 2.150324388899668,
+      "comfort_ppd": 83.06393783679331,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4309.905600000001,
+      "comfort_energy_ratio": 0.06571494366375698
+    },
+    {
+      "water_temp": 43.7,
+      "comfort_pmv": 2.134446290613612,
+      "comfort_ppd": 82.44725243617819,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4324.9752,
+      "comfort_energy_ratio": 0.06670972428438342
+    },
+    {
+      "water_temp": 43.8,
+      "comfort_pmv": 2.118568158794586,
+      "comfort_ppd": 81.81851383515657,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4340.0448,
+      "comfort_energy_ratio": 0.06769759928172585
+    },
+    {
+      "water_temp": 43.9,
+      "comfort_pmv": 2.1026899933996144,
+      "comfort_ppd": 81.17789330520561,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4355.1143999999995,
+      "comfort_energy_ratio": 0.06867864034374434
+    },
+    {
+      "water_temp": 44.0,
+      "comfort_pmv": 2.08681179438568,
+      "comfort_ppd": 80.52557642910764,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4370.184,
+      "comfort_energy_ratio": 0.06965291816960265
+    },
+    {
+      "water_temp": 44.1,
+      "comfort_pmv": 2.0709335617097206,
+      "comfort_ppd": 79.86176282531979,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4385.253600000001,
+      "comfort_energy_ratio": 0.0706205024866581
+    },
+    {
+      "water_temp": 44.2,
+      "comfort_pmv": 2.055055295328627,
+      "comfort_ppd": 79.18666584219436,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4400.3232,
+      "comfort_energy_ratio": 0.07158146206710247
+    },
+    {
+      "water_temp": 44.3,
+      "comfort_pmv": 2.0391769951992464,
+      "comfort_ppd": 78.50051222326118,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4415.3928,
+      "comfort_energy_ratio": 0.07253586474426113
+    },
+    {
+      "water_temp": 44.4,
+      "comfort_pmv": 2.023298661278378,
+      "comfort_ppd": 77.80354174486637,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4430.462399999999,
+      "comfort_energy_ratio": 0.07348377742856083
+    },
+    {
+      "water_temp": 44.5,
+      "comfort_pmv": 2.00742029352278,
+      "comfort_ppd": 77.09600682754055,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4445.532,
+      "comfort_energy_ratio": 0.07442526612317116
+    },
+    {
+      "water_temp": 44.6,
+      "comfort_pmv": 1.9915418918891616,
+      "comfort_ppd": 76.37817212253749,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4460.601600000001,
+      "comfort_energy_ratio": 0.07536039593933086
+    },
+    {
+      "water_temp": 44.7,
+      "comfort_pmv": 1.9756634563341888,
+      "comfort_ppd": 75.6503140750479,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4475.6712,
+      "comfort_energy_ratio": 0.07628923111136278
+    },
+    {
+      "water_temp": 44.8,
+      "comfort_pmv": 1.9597849868144825,
+      "comfort_ppd": 74.91272046564566,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4490.7408,
+      "comfort_energy_ratio": 0.07721183501138738
+    },
+    {
+      "water_temp": 44.9,
+      "comfort_pmv": 1.9439064832866157,
+      "comfort_ppd": 74.16568993157077,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4505.810399999999,
+      "comfort_energy_ratio": 0.0781282701637412
+    },
+    {
+      "water_temp": 45.0,
+      "comfort_pmv": 1.9280279457071177,
+      "comfort_ppd": 73.40953146949296,
+      "heat_loss_kj": 0.0,
+      "energy_used_kj": 4520.88,
+      "comfort_energy_ratio": 0.07903859825910607
+    }
+  ],
+  "optimal": {
+    "water_temp": 34.0,
+    "comfort_pmv": 0.00040264096929020366,
+    "comfort_ppd": 5.000003355959919,
+    "heat_loss_kj": 226.79999999999998,
+    "energy_used_kj": 2863.224,
+    "comfort_energy_ratio": 0.3492097671518435
+  }
+}

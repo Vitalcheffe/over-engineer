@@ -1,0 +1,14 @@
+{
+  "bubble_sort": {
+    "comparisons": 992,
+    "entropy": 4.69724950146691
+  },
+  "quick_sort": {
+    "comparisons": 767,
+    "entropy": 4.69724950146691
+  },
+  "merge_sort": {
+    "comparisons": 80,
+    "entropy": 4.321928090415008
+  }
+}

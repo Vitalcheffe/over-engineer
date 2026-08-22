@@ -1,79 +1,74 @@
-# Template System — Usage
+# Over Engineer
 
-## What this is
+> Modeling the mundane with disproportionate rigor.
 
-A reusable template for Amine's portfolio + project sites. One canonical HTML structure, four named visual identities ("vibes"), eight accent swaps per vibe ("colorways"). Inspired by [archify](https://github.com/tt-a1i/archify)'s preset system.
+**12 projects. 12 months. 2026.**
 
-The complaint was "très très basique" — competent but lifeless. The fix is **intentional identity**: each vibe is a complete design DNA (typography + material + motion + composition), and the colorway is a single accent swap, never a theming exercise.
+Each month, one everyday phenomenon — a traffic jam, a penalty kick, a raindrop on a window — modeled with the same mathematical rigor as a defense system. Not because it matters. Because the ability to formalize the everyday is what engineering is.
 
-## Open the showcase
+## The series
 
-Open `index.html` in this folder. It shows all 4 vibes on the same content side by side, plus the 3 project pages with the same vibe but different colorways.
+| # | Month | Phenomenon | Math | Key result |
+|---|-------|-----------|------|------------|
+| 01 | Jan | The Optimal Shower | Newton's Law of Cooling x Fanger PMV x Pareto | Optimal: 34.0C |
+| 02 | Feb | Phantom Traffic Jams | LWR continuum + Bando OVM stability | rho_crit = 30 veh/km |
+| 03 | Mar | The Penalty Kick Game | Zero-sum game theory + Nash via LP | Goal rate: 75% |
+| 04 | Apr | Elevator Dispatching | M/M/c queueing + SCAN/LOOK | LOOK 48% faster |
+| 05 | May | The Queue Paradox | M/M/1 + Little's Law + serpentine | Variance -67% |
+| 06 | Jun | Raindrop Racing | Stokes drag + coalescence | r* = 1.5mm |
+| 07 | Jul | The Blind Bartender | 1-D Kalman filter + sensor fusion | RMSE 0.104m |
+| 08 | Aug | Flocking Dynamics | Reynolds boids (1987) + Vicsek psi | psi: 0.03->0.94 |
+| 09 | Sep | The Optimal Paper Airplane | Aerodynamics + L/D optimization | L/D = 3.1:1 |
+| 10 | Oct | The Self-Balancing Tray | Slosh dynamics + LQR control | Peak 18->4 deg |
+| 11 | Nov | The Strength of Cardboard | FEA + Euler buckling | 278,000x stiffer |
+| 12 | Dec | Sorting Algorithms as Music | Sonification + spectral entropy | Quick: 0.79 entropy |
 
-## Files
+## Structure
 
 ```
-template/
-├── index.html                              ← showcase (start here)
-├── over-engineer/index.html                ← portfolio (field-journal + navy)
-├── over-engineer-traffic/index.html        ← project (field-journal + amber)
-├── over-engineer-flocking/index.html       ← project (field-journal + emerald)
-├── over-engineer-raindrops/index.html      ← project (field-journal + sky)
-├── showcase-console/index.html             ← vibe demo (console + vermilion)
-├── showcase-atlas/index.html               ← vibe demo (atlas + sky)
-├── showcase-dispatch/index.html            ← vibe demo (dispatch + vermilion)
-├── showcase-field-journal-light/index.html ← light theme variant
-└── _source/                                ← source template + build script
-    ├── DESIGN.md                           ← creative North Star + named rules
-    ├── base.html                           ← canonical structure
-    ├── styles/{base,vibes,colorways}.css  ← token sets
-    ├── scripts/build.mjs                   ← Node renderer
-    └── content/*.json                      ← content for each rendered page
+over-engineer/
+├── README.md                    # This file
+├── projects/
+│   ├── shower/                  # P.01
+│   │   ├── model.py
+│   │   ├── tests/
+│   │   └── README.md
+│   ├── traffic/                 # P.02
+│   ├── penalty/                 # P.03
+│   ├── ...
+│   └── sorting-music/           # P.12
+└── portfolio/                   # Live portfolio site
 ```
 
-## Build a new site
+Each project folder contains:
+- `model.py` — the mathematical implementation
+- `tests/` — pytest suite verifying mathematical invariants
+- `README.md` — the question, the model, the result, the limitations
+- `data/results.json` — numerical output
+
+## Run all projects
 
 ```bash
-cd _source
-node scripts/build.mjs content/<name>.json <vibe> <colorway> <theme> <out.html>
+for d in projects/*/; do
+  cd "$d"
+  python3 model.py
+  python3 -m pytest tests/ -q
+  cd ..
+done
 ```
 
-- **vibe**: `field-journal` · `console` · `atlas` · `dispatch`
-- **colorway**: `navy` · `vermilion` · `emerald` · `amber` · `sky` · `rose` · `violet` · `graphite`
-- **theme**: `light` · `dark`
+## Stats
 
-Output is a single self-contained HTML file (~50kb). Ship anywhere — no build step, no JS framework.
+- **90 tests passing** across 12 projects (0 failures)
+- **Python + NumPy + SciPy** — no external simulation libraries
+- **MIT License** — open source, reproducible
 
-## The 4 vibes
+## Philosophy
 
-| Vibe | For | DNA |
-|---|---|---|
-| **field-journal** | over-engineer projects, math/physics modeling | Paper, ruled lines, vermilion ink, Syne display |
-| **console** | ML, systems, agent runs | Terminal dark, scanlines, JetBrains Mono everywhere, blinking cursor |
-| **atlas** | aero, infra, cartographic | Blueprint grid, drafting corner brackets, Space Grotesk + Inter |
-| **dispatch** | case studies, startup, reportage | Magazine, drop caps, Playfair display, editorial red |
+The model says 34C. The human says 40C. The gap is the point.
 
-## The 8 colorways
+The world is formalizable. This repo proves it, one mundane phenomenon at a time.
 
-Each colorway swaps exactly ONE accent color. The accent is used for:
-- filet top on card hover
-- reading progress bar
-- external link hover
-- stat value (the key metric)
-- eyebrow dot pulse ring
+---
 
-Nothing else changes. Background, body text, hierarchy — all stay identical. **One accent per page, never two.**
-
-## Design discipline (read DESIGN.md before editing)
-
-- **Vibe Parity Rule**: same vibe ⇒ same typography, motion, composition. Different colorways allowed.
-- **Colorway Identity Rule**: colorway is an accent, not a theme. Semantic meaning comes from content.
-- **Flat-at-Rest Rule**: no shadows by default. Borders + tone define structure.
-- **Motion Budget Rule**: 3 signatures max — reveal on scroll, card hover, one vibe atmosphere.
-- **Anti-Cliché Rule**: no glassmorphism, no gradient text, no icon packs, no "Trusted by", no 3-card equal-height features.
-
-## To extend
-
-1. **New project page** — copy `content/over-engineer-traffic.json`, edit, build with `field-journal` + chosen colorway.
-2. **New vibe** — add a `[data-vibe="name"]` block in `vibes.css` with full token set. Update `build.mjs` FONT_URLS + FAVICONS. Update `DESIGN.md` table.
-3. **New colorway** — add a `[data-colorway="name"]` block in `colorways.css` with `--accent` + `--btn-primary-fg` for both themes. Add to `build.mjs` COLORWAYS array.
+*Amine Harch El Korane - 2026*

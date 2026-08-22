@@ -1,0 +1,17 @@
+{
+  "project": "elevator-dispatching",
+  "results": {
+    "SCAN": {
+      "mean_wait": 2.888,
+      "std_wait": 1.7605271937689573
+    },
+    "LOOK": {
+      "mean_wait": 2.888,
+      "std_wait": 1.7605271937689573
+    },
+    "Random": {
+      "mean_wait": 13.68,
+      "std_wait": 9.471304028485202
+    }
+  }
+}
